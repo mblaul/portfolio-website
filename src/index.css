@@ -1,5 +1,18 @@
+.navbar {
+	font-family: "Inconsolata", monospace;
+}
+
 body {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
+	font-family: "Montserrat", sans-serif;
+}
+
+.jumbotron img {
+	border-radius: 50%;
+}
+
+.jumbotron section {
+	float: right;
+	vertical-align: text-bottom;
 }
