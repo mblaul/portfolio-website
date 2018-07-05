@@ -28,7 +28,6 @@ class Content extends Component {
             </div>
           </div>
         </div>
-        <div className="container-fluid">TEST</div>
       </div>
     );
   }
