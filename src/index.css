@@ -3,6 +3,7 @@
 	background-color: black !important;
 	font-family: "Inconsolata", monospace;
 }
+
 .navbar a {
 	color: white;
 }
@@ -48,4 +49,8 @@ body {
 	font-style: bold;
 	font-family: "Inconsolata", monospace;
 	text-shadow: 0px 0px 7px #000000;
+}
+
+.display-4 {
+	font-family: "Inconsolata", monospace !important;
 }

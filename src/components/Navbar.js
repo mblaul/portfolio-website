@@ -6,7 +6,7 @@ class Navbar extends Component {
 			<div>
 				<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
 					<a class="navbar-brand" href="#">
-						mblaul
+						mb
 					</a>
 					<button
 						class="navbar-toggler"

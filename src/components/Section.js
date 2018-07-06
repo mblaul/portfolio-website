@@ -6,8 +6,8 @@ export default class Section extends Component {
 			<div className="container-fluid">
 				<div className="row">
 					<div className="col-sm-12">
-						<h2>Projects</h2>
-						<p>
+						<h1 class="display-4">Projects</h1>
+						<p class="lead">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
 							nec ante sit amet nisi volutpat lobortis id in nulla. Sed erat
 							purus, ullamcorper vel sodales pellentesque, feugiat eu turpis.
