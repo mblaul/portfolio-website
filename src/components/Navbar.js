@@ -4,12 +4,12 @@ class Navbar extends Component {
 	render() {
 		return (
 			<div>
-				<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
-					<a class="navbar-brand" href="#">
+				<nav className="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+					<a className="navbar-brand" href="#">
 						mb
 					</a>
 					<button
-						class="navbar-toggler"
+						className="navbar-toggler"
 						type="button"
 						data-toggle="collapse"
 						data-target="#navbarSupportedContent"
@@ -17,28 +17,28 @@ class Navbar extends Component {
 						aria-expanded="false"
 						aria-label="Toggle navigation"
 					>
-						<span class="navbar-toggler-icon" />
+						<span className="navbar-toggler-icon" />
 					</button>
 
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active">
-								<a class="nav-link" href="#">
-									Home <span class="sr-only">(current)</span>
+					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul className="navbar-nav mr-auto">
+							<li className="nav-item active">
+								<a className="nav-link" href="#">
+									Home <span className="sr-only">(current)</span>
 								</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
+							<li className="nav-item">
+								<a className="nav-link" href="#">
 									Projects
 								</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
+							<li className="nav-item">
+								<a className="nav-link" href="#">
 									Experience
 								</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
+							<li className="nav-item">
+								<a className="nav-link" href="#">
 									Education
 								</a>
 							</li>

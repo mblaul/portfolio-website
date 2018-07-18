@@ -9,13 +9,11 @@ class Content extends Component {
 						<div className="col-6">
 							<section id="about">
 								<h1>Matthew Blaul</h1>
-								<p>
-									<ul>
-										<li>Full Stack Web Developer</li>
-										<li>Data Analyst</li>
-										<li>Animal Lover</li>
-									</ul>
-								</p>
+								<ul>
+									<li>Full Stack Web Developer</li>
+									<li>Data Analyst</li>
+									<li>Animal Lover</li>
+								</ul>
 							</section>
 						</div>
 						<div className="col-6">
