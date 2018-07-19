@@ -19,9 +19,9 @@ class Content extends Component {
 						<div className="col-6">
 							<img
 								src="https://learn.extension.org/assets/avatar_placeholder-4c003c71739be2ed78864bcd49550380.png"
-								alt="Avatar"
 								width="250"
 								height="250"
+								alt="Avatar for Matt"
 							/>
 						</div>
 					</div>

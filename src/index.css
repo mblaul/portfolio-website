@@ -51,7 +51,33 @@ body {
 	text-shadow: 0px 0px 7px #000000;
 }
 
+.display-3 {
+	text-align: center;
+	padding-bottom: 15px;
+}
+
 .display-4 {
 	text-align: center;
 	padding-bottom: 15px;
+}
+
+.inline-block-center div {
+	margin: 0 auto;
+	float: none;
+	margin-bottom: 10px;
+}
+
+.card {
+	width: 25rem;
+	height: 32rem;
+}
+
+.card img {
+	height: 15rem;
+}
+
+.card .btn {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
 }
