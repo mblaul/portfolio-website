@@ -80,11 +80,10 @@ export default class Section extends Component {
 				<h1 className="display-4" id="experience">
 					Professional Experience
 				</h1>
-				<h2 className="display-5">IT Specialist</h2>
-				<hr />
 				<div className="row inline-block-center">
-					<div className="col-sm-12">
-						<div className="col-sm-12" />
+					<div className="col-md-12">
+						<h2 className="display-5">IT Specialist</h2>
+						Hello
 					</div>
 				</div>
 				<div className="row">
