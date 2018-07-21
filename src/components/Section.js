@@ -6,6 +6,29 @@ export default class Section extends Component {
 	render() {
 		return (
 			<div className="col-md-12">
+				<h1 className="display-3" id="skills">
+					Skills <hr />
+				</h1>
+				<div className="container">
+					<div className="row justify-content-center" id="skills">
+						<div>
+							<p className="p-4" style={{ width: "350px" }}>
+								NodeJS / Express<br />
+								React<br />
+								MongoDB<br />
+								MySQL / MSSQL<br />
+							</p>
+						</div>
+						<div>
+							<p className="p-4" style={{ width: "350px" }}>
+								Python<br />
+								Docker<br />
+								Linux / Windows / macOS<br />
+								And much more!<br />
+							</p>
+						</div>
+					</div>
+				</div>
 				<h1 className="display-3" id="projects">
 					Projects <hr />
 				</h1>
