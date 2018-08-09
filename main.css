@@ -1,0 +1,47 @@
+body,
+html {
+	height: 100%;
+	margin: 0;
+}
+
+.section#hero {
+	background-image: linear-gradient(
+			to bottom right,
+			rgba(33, 118, 255, 0.9),
+			rgba(253, 202, 64, 0.9)
+		),
+		url("../img/topbackground.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	height: 75%;
+}
+
+.grid-container#hero {
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.grid-container#hero .grid-item#about {
+	padding: 7rem;
+	color: white;
+}
+
+.grid-container#hero .grid-item#about h1 {
+	font-size: 6rem;
+	font-family: "IBM Plex Sans", sans-serif;
+	text-shadow: 5px 3px 1px rgba(49, 57, 60, 1);
+}
+
+.grid-container#hero .grid-item#about li {
+	font-size: 3rem;
+	font-family: "IBM Plex Serif", serif;
+}
+
+.grid-container#hero .grid-item img {
+	padding: 7.5rem;
+	width: 25rem;
+	height: 25rem;
+	border-radius: 50%;
+}
