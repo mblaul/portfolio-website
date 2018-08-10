@@ -69,3 +69,14 @@ hr {
 		rgba(253, 202, 64, 1)
 	);
 }
+
+.content-skills .grid-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.content-skills .grid-item {
+	font-size: 75px;
+	text-align: center;
+	color: linear-gradient(to right, rgba(33, 118, 255, 1), rgb(170, 36, 247));
+}
