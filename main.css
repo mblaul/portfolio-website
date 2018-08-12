@@ -60,19 +60,20 @@ svg {
 	margin: 0 auto;
 	text-align: center;
 	font-family: "Merienda One", cursive;
-	font-size: 60px;
+	font-size: 65px;
 	color: rgba(49, 57, 60, 1);
 }
 
 .content-skills .grid-container {
 	display: grid;
 	margin-bottom: 75px;
-	margin: 0px 20px 77px 20px;
+	margin: 0px 25% 77px 25%;
 	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 15px;
 }
 
 .content-skills .grid-item {
-	font-size: 7vw;
+	font-size: 5vw;
 	text-align: center;
 	color: linear-gradient(to right, rgba(33, 118, 255, 1), rgb(170, 36, 247));
 }
@@ -81,5 +82,5 @@ svg {
 	margin: 0 auto;
 	text-align: center;
 	font-family: "Merienda One", cursive;
-	font-size: 60px;
+	font-size: 75px;
 }
