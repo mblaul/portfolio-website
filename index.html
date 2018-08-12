@@ -6,12 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link href="https://fonts.googleapis.com/css?family=Merienda+One|Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
-  <script src="main.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="script.js"></script>
+
 </head>
 
 <body>
@@ -24,26 +26,49 @@
         <i class="fab fa-linkedin"></i>
       </div>
     </div>
-    <hr />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <polygon fill="white" points="0,100 100,0 100,100" />
+    </svg>
   </div>
 
   <div class="content">
     <div class="content-skills">
-      <h1>Skills</h1>
+
+      <h1>
+        Skills
+      </h1>
       <div class="grid-container">
         <div class="grid-item">
           <i class="fab fa-html5"></i>
         </div>
         <div class="grid-item">
+          <i class="fab fa-css3-alt"></i>
+        </div>
+        <div class="grid-item">
+          <i class="fab fa-js"></i>
+        </div>
+        <div class="grid-item">
+          <i class="fab fa-node-js"></i>
+        </div>
+        <div class="grid-item">
           <i class="fab fa-react"></i>
+        </div>
+
+        <div class="grid-item">
+          <i class="fas fa-database"></i>
 
         </div>
-        <div class="grid-item">MongoDB</div>
-        <div class="grid-item">MySQL / MSSQL</div>
-        <div class="grid-item">Python</div>
-        <div class="grid-item">Docker</div>
-        <div class="grid-item">Linux / Windows / macOS</div>
-        <div class="grid-item">And much more!</div>
+        <div class="grid-item">
+          <i class="fab fa-python"></i>
+
+        </div>
+        <div class="grid-item">
+          <i class="fab fa-docker"></i>
+
+        </div>
+        <div class="grid-item">
+          <i class="fab fa-linux"></i>
+        </div>
       </div>
       <div class="content-projects">
         <h1>Projects</h1>
@@ -54,6 +79,80 @@
         <div class="li">5</div>
       </div>
     </div>
+
+    <script src="https://unpkg.com/popmotion-pose/dist/popmotion-pose.js"></script>
+    <script>
+      const box = document.querySelector(".header-text");
+
+      const props = {
+        visible: {
+          opacity: 1,
+          transition: { duration: 3000 }
+        },
+        hidden: { opacity: 0 },
+        initialPose: "hidden"
+      };
+
+      let isVisible = false;
+      const poser = pose(box, props);
+      poser.set(isVisible ? "hidden" : "visible");
+
+      function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+        );
+      }
+
+
+      function onVisibilityChange(el, callback) {
+        var old_visible;
+        return function () {
+          var visible = isElementInViewport(el);
+          if (visible != old_visible) {
+            old_visible = visible;
+            if (typeof callback == 'function') {
+              callback();
+            }
+          }
+        }
+      }
+
+      var handler = onVisibilityChange(document.querySelector('.content'), function () {
+        console.log("Element is visible");
+        const box = document.querySelector(".content");
+
+        const props = {
+          visible: {
+            opacity: 1,
+            transition: { duration: 3000 }
+          },
+          hidden: { opacity: 0 },
+          initialPose: "hidden"
+        };
+
+        let isVisible = false;
+        const poser = pose(box, props);
+        poser.set(isVisible ? "hidden" : "visible");
+      });
+
+      if (window.addEventListener) {
+        addEventListener('DOMContentLoaded', handler, false);
+        addEventListener('load', handler, false);
+        addEventListener('scroll', handler, false);
+        addEventListener('resize', handler, false);
+      } else if (window.attachEvent) {
+        attachEvent('onDOMContentLoaded', handler); // IE9+ :(
+        attachEvent('onload', handler);
+        attachEvent('onscroll', handler);
+        attachEvent('onresize', handler);
+      }
+
+    </script>
 </body>
 
 </html>
