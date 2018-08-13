@@ -35,7 +35,6 @@ html {
 	margin-bottom: 20px;
 	border-radius: 50%;
 	border: 5px solid white;
-
 	box-shadow: 0vw 0vw 2vw rgba(49, 57, 60, 1);
 }
 
@@ -43,6 +42,17 @@ html {
 	margin: 0 auto;
 	padding: 15px;
 	font-size: 45px;
+}
+
+.header-icons a {
+	color: white;
+	width: 20px;
+	height: 20px;
+}
+
+.header-icons a:hover {
+	color: white;
+	text-shadow: 0vw 0vw 1vw rgba(253, 202, 64, 1);
 }
 
 svg {
