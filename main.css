@@ -26,7 +26,7 @@ html {
 	margin: 0;
 	padding: 2vw;
 	font-family: "Merienda One", cursive;
-	font-size: 7vw;
+	font-size: 10vmin;
 }
 
 .header-text img {
@@ -60,27 +60,48 @@ svg {
 	margin: 0 auto;
 	text-align: center;
 	font-family: "Merienda One", cursive;
-	font-size: 65px;
-	color: rgba(49, 57, 60, 1);
+	font-size: 6vmax;
 }
 
 .content-skills .grid-container {
 	display: grid;
 	margin-bottom: 75px;
-	margin: 0px 25% 77px 25%;
+	margin: 0px 15% 77px 15%;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 15px;
+	grid-gap: 20px;
 }
 
 .content-skills .grid-item {
-	font-size: 5vw;
+	font-size: 25px;
 	text-align: center;
-	color: linear-gradient(to right, rgba(33, 118, 255, 1), rgb(170, 36, 247));
+}
+
+.content-skills .grid-item i {
+	font-size: 10vmin;
 }
 
 .content-projects h1 {
 	margin: 0 auto;
 	text-align: center;
 	font-family: "Merienda One", cursive;
-	font-size: 75px;
+	font-size: 6vmax;
+}
+
+.content-projects .grid-container {
+	display: grid;
+	margin-bottom: 75px;
+	margin: 10px 0px 0px 0px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+}
+
+.card {
+	width: 300px;
+	height: 450px;
+	border: black 1px solid;
+	border-radius: 3px;
+}
+
+.card-title {
+	height: 25%;
 }
