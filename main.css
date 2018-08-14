@@ -65,11 +65,55 @@ svg {
 }
 
 .content {
-	margin: 0px 10vw 0px 10vw;
+	margin: 0px 8vw 30px 8vw;
+}
+
+.content-projects {
+	margin-bottom: 30px;
+}
+
+.content-projects h1 {
+	margin: 0 auto;
+	margin-bottom: 50px;
+	text-align: center;
+	font-family: "Merienda One", cursive;
+	font-size: 6vmax;
+}
+
+.content-projects .grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	grid-gap: 25px;
+}
+
+.card {
+	margin: 0 auto;
+	width: 300px;
+	height: 350px;
+	border: rgba(49, 57, 60, 1) 2px solid;
+	border-radius: 10px;
+}
+
+.card-title {
+	height: 15%;
+	padding-top: 8%;
+	text-align: center;
+	font-size: 30px;
+	text-shadow: 0vw 0vw 0.25vw rgba(49, 57, 60, 1);
+	color: white;
+	background: linear-gradient(
+		to top right,
+		rgba(33, 118, 255, 1),
+		rgba(51, 161, 253, 1)
+	);
+}
+
+.card-body {
+	margin: 5%;
 }
 
 .content-skills h1 {
-	margin: 0 auto;
+	margin-bottom: 50px;
 	text-align: center;
 	font-family: "Merienda One", cursive;
 	font-size: 6vmax;
@@ -90,41 +134,4 @@ svg {
 
 .content-skills .grid-item i {
 	font-size: 10vmin;
-}
-
-.content-projects h1 {
-	margin: 0 auto;
-	margin-bottom: 25px;
-	text-align: center;
-	font-family: "Merienda One", cursive;
-	font-size: 6vmax;
-}
-
-.content-projects .grid-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	grid-gap: 2vw;
-}
-
-.content-projects .grid-item {
-	margin: 0 auto;
-}
-
-.card {
-	width: 320px;
-	height: 400px;
-	border: rgba(49, 57, 60, 1) 2px solid;
-	border-radius: 10px;
-}
-
-.card-title {
-	height: 15%;
-	margin-top: 15%;
-	vertical-align: center;
-	text-align: center;
-	border-bottom: rgba(49, 57, 60, 1) 2px solid;
-}
-
-.card-body {
-	margin: 5%;
 }

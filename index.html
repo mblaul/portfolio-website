@@ -38,6 +38,43 @@
   </div>
 
   <div class="content">
+    <div class="content-projects">
+      <h1>Projects</h1>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="card shh">
+            <div class="card-title">
+              <strong>SmartHelpHome</strong>
+            </div>
+            <div class="card-body">
+              Project to blah blah blah
+            </div>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="card">
+            <div class="card-title">
+              <strong>DevConnector</strong>
+            </div>
+            <div class="card-body">
+              Project to blah blah blah
+            </div>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="card">
+            <div class="card-title">
+              <strong>aposTrophy</strong>
+            </div>
+            <div class="card-body">
+              Project to blah blah blah
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <div class="content-skills">
       <h1>
         Skills
@@ -76,87 +113,36 @@
         </div>
       </div>
     </div>
-    <div class="content-projects">
-      <h1>Projects</h1>
-      <div class="grid-container">
-        <div class="grid-item">
-          <div class="card">
-            <div class="card-title">
-              SmartHelpHome
-            </div>
-            <div class="card-body">
-              Project to blah blah blah
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card">
-            <div class="card-title">
-              SmartHelpHome
-            </div>
-            <div class="card-body">
-              Project to blah blah blah
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card">
-            <div class="card-title">
-              DevConnector
-            </div>
-            <div class="card-body">
-              Project to blah blah blah
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card">
-            <div class="card-title">
-              aposTrophy
-            </div>
-            <div class="card-body">
-              Project to blah blah blah
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="content-projects2">
-        <h1>Projects</h1>
-        <div class="li">1</div>
-        <div class="li">2</div>
-        <div class="li">3</div>
-        <div class="li">4</div>
-        <div class="li">5</div>
-      </div>
-    </div>
+
+  </div>
 
 
-    <script src="https://unpkg.com/popmotion-pose/dist/popmotion-pose.js"></script>
+  <script src="https://unpkg.com/popmotion-pose/dist/popmotion-pose.js"></script>
 
-    <script>
-      revealElement = (el) => {
-        const box = el;
-        const props = {
-          visible: {
-            opacity: 1,
-            transition: { duration: 2750 }
-          },
-          hidden: { opacity: 0 },
-          initialPose: "hidden"
-        };
+  <script>
+    revealElement = (el) => {
+      const box = el;
+      const props = {
+        visible: {
+          opacity: 1,
+          transition: { duration: 2750 }
+        },
+        hidden: { opacity: 0 },
+        initialPose: "hidden"
+      };
 
-        let isVisible = false;
-        const poser = pose(box, props);
-        poser.set(isVisible ? "hidden" : "visible");
-      }
+      let isVisible = false;
+      const poser = pose(box, props);
+      poser.set(isVisible ? "hidden" : "visible");
+    }
 
-      elementsToReveal = [document.querySelector('.header-text'), document.querySelector('.content-skills'), document.querySelector('.content-projects')]
+    elementsToReveal = [document.querySelector('.header-text'), document.querySelector('.content-skills'), document.querySelector('.content-projects')]
 
-      elementsToReveal.map(el => {
-        revealElement(el);
-      })
+    elementsToReveal.map(el => {
+      revealElement(el);
+    })
 
-    </script>
+  </script>
 </body>
 
 </html>
