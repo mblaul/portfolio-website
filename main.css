@@ -95,7 +95,7 @@ svg {
 }
 
 .card-title {
-	height: 15%;
+	height: 30%;
 	padding-top: 8%;
 	text-align: center;
 	font-size: 30px;
@@ -106,6 +106,12 @@ svg {
 		rgba(33, 118, 255, 1),
 		rgba(51, 161, 253, 1)
 	);
+	border-top-left-radius: 7px;
+	border-top-right-radius: 8px;
+}
+
+.card-title i {
+	font-size: 25px;
 }
 
 .card-body {
