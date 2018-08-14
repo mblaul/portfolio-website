@@ -30,8 +30,8 @@ html {
 }
 
 .header-text img {
-	width: 18vw;
-	height: 18vw;
+	width: 16vmax;
+	height: 16vmax;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	border: 5px solid white;
@@ -106,8 +106,11 @@ svg {
 		rgba(33, 118, 255, 1),
 		rgba(51, 161, 253, 1)
 	);
-	border-top-left-radius: 7px;
+	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
+	border-top: rgba(49, 57, 60, 1) 2px solid;
+	border-left: rgba(49, 57, 60, 1) 2px solid;
+	border-right: rgba(49, 57, 60, 1) 2px solid;
 }
 
 .card-title i {
