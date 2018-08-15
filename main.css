@@ -142,3 +142,7 @@ svg {
 .content-skills .grid-item i {
 	font-size: 10vmin;
 }
+
+.footer {
+	text-align: center;
+}
