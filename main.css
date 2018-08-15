@@ -44,13 +44,11 @@ html {
 	font-size: 45px;
 }
 
-.header-icons a {
+a {
 	color: white;
-	width: 20px;
-	height: 20px;
 }
 
-.header-icons a:hover {
+a:hover {
 	color: white;
 	text-shadow: 0vw 0vw 1vw rgba(253, 202, 64, 1);
 }
