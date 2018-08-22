@@ -1,0 +1,37 @@
+body,
+html {
+	margin: 0;
+	background: linear-gradient(
+		to right,
+		rgba(33, 118, 255, 1),
+		rgb(170, 36, 247)
+	);
+}
+
+.header {
+	margin: 2.5%;
+	border: 2px solid black;
+}
+
+.container {
+	margin: 2.5% 5% 0% 5%;
+	border-radius: 10px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+	height: 750px;
+	background: white;
+	box-shadow: 10px 5px 40px -10px rgba(0, 0, 0, 0.86);
+}
+
+.column-1 {
+	margin: 10%;
+	text-align: center;
+}
+
+.column-1 img {
+	border-radius: 50%;
+}
+
+.column-2 {
+	margin: 10% auto;
+}
