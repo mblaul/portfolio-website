@@ -29,8 +29,30 @@
       </div>
       <div class="vl"></div>
       <div class="column-3">
-        <h1>Projects</h1>
-        <h1>Experience</h1>
+        <button class="btn-projects" type="button" onclick="showElement()">Projects</button>
+        <article id="projects">
+          <div class="projects-grid">
+            <div class="projects-grid-item">
+              <div class="title"><a href="https://github.com/mblaul/smarthelphome">SmartHelpHome</a></div>
+              <article><i class="fab fa-js"></i><i class="fab fa-node-js"></i><i class="fas fa-database"></i><i class="fab fa-docker"></i><i
+                  class="fab fa-linux"></i></article>
+            </div>
+            <div class="projects-grid-item">
+              <div class="title"><a href="https://github.com/mblaul/devconnect">DevConnector</a></div>
+              <article><i class="fab fa-html5"></i><i class="fab fa-css3-alt"></i><i class="fab fa-js"></i><i class="fab fa-node-js"></i><i
+                  class="fab fa-react"></i><i class="fas fa-database"></i></article>
+            </div>
+            <div class="projects-grid-item">
+              <div class="title"><a href="https://github.com/mblaul/apostrophy">Apostrophy</a></div>
+              <article><i class="fab fa-html5"></i><i class="fab fa-css3-alt"></i><i class="fab fa-python"></i><i class="fas fa-database"></i></article>
+            </div>
+            <div class="projects-grid-item">
+              <div class="title"><a href="https://github.com/mblaul/analyticsdashboard">StatsDashboard</a></div>
+              <article><i class="fab fa-html5"></i><i class="fab fa-css3-alt"></i><i class="fab fa-js"></i><i class="fas fa-database"></i></article>
+            </div>
+          </div>
+        </article>
+        <button type="button">Experience</button>
       </div>
     </div>
   </div>
@@ -50,7 +72,7 @@
       const props = {
         visible: {
           opacity: 1,
-          transition: { duration: 1500 }
+          transition: { duration: 1750 }
         },
         hidden: { opacity: 0 },
         initialPose: "hidden"
@@ -59,6 +81,17 @@
       let isVisible = false;
       const poser = pose(box, props);
       poser.set(isVisible ? "hidden" : "visible");
+    }
+
+    function showElement() {
+      var element = document.getElementById("projects");
+      if (element.style.display === "") {
+        element.style.display = "block";
+        document.querySelector('.btn-projects').style.backgroundColor = 'rgb(170, 36, 247)';
+      } else {
+        element.style.display = "";
+        document.querySelector('.btn-projects').style.backgroundColor = 'rgba(33, 118, 255, 1)';
+      }
     }
 
 
