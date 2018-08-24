@@ -83,16 +83,32 @@
       poser.set(isVisible ? "hidden" : "visible");
     }
 
+
+
     function showElement() {
-      var element = document.getElementById("projects");
-      if (element.style.display === "") {
-        element.style.display = "block";
+      console.log('click!');
+      var projectsElement = document.getElementById("projects");
+
+      const { easing, tween, styler } = window.popmotion;
+      const divStyler = styler(document.querySelector("#projects"));
+
+      if (projectsElement.style.display === "") {
+        projectsElement.style.display = "block";
         document.querySelector('.btn-projects').style.backgroundColor = 'rgb(170, 36, 247)';
+        tween({
+          from: -30,
+          to: { y: 0 },
+          duration: 1000,
+          ease: easing.backOut
+        }).start(divStyler.set);
       } else {
-        element.style.display = "";
         document.querySelector('.btn-projects').style.backgroundColor = 'rgba(33, 118, 255, 1)';
+        projectsElement.style.display = "";
       }
+
+
     }
+
 
 
     window.onload = init;
