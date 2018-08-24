@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
+  <title>Matthew Blaul</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro:600" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
@@ -83,20 +83,17 @@
       poser.set(isVisible ? "hidden" : "visible");
     }
 
-
-
     function showElement() {
-      console.log('click!');
       var projectsElement = document.getElementById("projects");
 
       const { easing, tween, styler } = window.popmotion;
       const divStyler = styler(document.querySelector("#projects"));
 
       if (projectsElement.style.display === "") {
-        projectsElement.style.display = "block";
         document.querySelector('.btn-projects').style.backgroundColor = 'rgb(170, 36, 247)';
+        projectsElement.style.display = "block";
         tween({
-          from: -30,
+          from: -50,
           to: { y: 0 },
           duration: 1000,
           ease: easing.backOut

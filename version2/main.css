@@ -141,15 +141,14 @@ body {
 	}
 	.container {
 		margin: 0% 1% 0% 1%;
+		height: auto;
 	}
 	.inner-container {
 		grid-template-columns: 100%;
 	}
-
 	.vl {
 		display: none;
 	}
-
 	.column-3 .projects-grid {
 		grid-template-columns: 100%;
 	}
