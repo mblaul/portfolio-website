@@ -30,7 +30,7 @@
       </div>
       <div class="vl"></div>
       <div class="column-3">
-        <button class="btn-projects" type="button" onclick="showElement()">Projects</button>
+        <button class="btn-projects" type="button" onclick="showElement(document.getElementById('projects'))">Projects</button>
         <article id="projects">
           <div class="projects-grid">
             <div class="projects-grid-item">
@@ -82,7 +82,7 @@
             </div>
           </div>
         </article>
-        <button type="button">Experience</button>
+        <button type="button" onclick="showElement(document.getElementById('experience'))">Experience</button>
         <article id="experience">
           <article>
             <h1>Summit Sports LLC</h1>
@@ -119,15 +119,14 @@
       poser.set(isVisible ? "hidden" : "visible");
     }
 
-    function showElement() {
-      var projectsElement = document.getElementById("projects");
+    function showElement(element) {
 
       const { easing, tween, styler } = window.popmotion;
-      const divStyler = styler(document.querySelector("#projects"));
+      const divStyler = styler(element);
 
-      if (projectsElement.style.display === "") {
+      if (element.style.display === "") {
         document.querySelector('.btn-projects').style.backgroundColor = 'rgb(170, 36, 247)';
-        projectsElement.style.display = "block";
+        element.style.display = "block";
         tween({
           from: -40,
           to: { y: 0 },
@@ -136,7 +135,7 @@
         }).start(divStyler.set);
       } else {
         document.querySelector('.btn-projects').style.backgroundColor = 'rgba(33, 118, 255, 1)';
-        projectsElement.style.display = "";
+        element.style.display = "";
       }
 
 
