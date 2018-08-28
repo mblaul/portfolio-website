@@ -30,7 +30,7 @@
       </div>
       <div class="vl"></div>
       <div class="column-3">
-        <button class="btn-projects" type="button" onclick="showElement(document.getElementById('projects'))">Projects</button>
+        <button class="btn-projects" type="button" onclick="showElement(document.querySelector('.btn-projects'), document.getElementById('projects'))">Projects</button>
         <article id="projects">
           <div class="projects-grid">
             <div class="projects-grid-item">
@@ -82,11 +82,14 @@
             </div>
           </div>
         </article>
-        <button type="button" onclick="showElement(document.getElementById('experience'))">Experience</button>
+        <button class="btn-experience" type="button" onclick="showElement(document.querySelector('.btn-experience'), document.getElementById('experience'))">Experience</button>
         <article id="experience">
           <article>
-            <h1>Summit Sports LLC</h1>
-            <h1>Michigan State University</h1>
+            <h1>Summit Sports LLC - IT Specialist</h1>
+            Nov 2014 - Present
+            <br /><br />
+            <h1>Michigan State University - Tech Aide</h1>
+            July 2014 - Nov 2014
           </article>
         </article>
       </div>
@@ -108,7 +111,7 @@
       const props = {
         visible: {
           opacity: 1,
-          transition: { duration: 1750 }
+          transition: { duration: 1500 }
         },
         hidden: { opacity: 0 },
         initialPose: "hidden"
@@ -119,29 +122,47 @@
       poser.set(isVisible ? "hidden" : "visible");
     }
 
-    function showElement(element) {
+    function showElement(button, element) {
 
       const { easing, tween, styler } = window.popmotion;
       const divStyler = styler(element);
+      console.log(element)
+      console.log(element.style.display);
 
-      if (element.style.display === "") {
-        document.querySelector('.btn-projects').style.backgroundColor = 'rgb(170, 36, 247)';
-        element.style.display = "block";
-        tween({
-          from: -40,
-          to: { y: 0 },
-          duration: 1000,
-          ease: easing.backOut
-        }).start(divStyler.set);
-      } else {
-        document.querySelector('.btn-projects').style.backgroundColor = 'rgba(33, 118, 255, 1)';
-        element.style.display = "";
+      switch (element.style.display) {
+        case "":
+          button.style.backgroundColor = 'rgb(170, 36, 247)';
+          element.style.display = "block";
+          tween({
+            from: -40,
+            to: { y: 0 },
+            duration: 1000,
+            ease: easing.backOut
+          }).start(divStyler.set);
+          break;
+        case "block":
+          button.style.backgroundColor = 'rgba(33, 118, 255, 1)';
+          element.style.display = "";
+          break;
+
       }
-
-
+      // if (element.style.display === "") {
+      //   button.style.backgroundColor = 'rgb(170, 36, 247)';
+      //   element.style.display = "block";
+      //   tween({
+      //     from: -40,
+      //     to: { y: 0 },
+      //     duration: 1000,
+      //     ease: easing.backOut
+      //   }).start(divStyler.set);
+      //   return;
+      // }
+      // else if (element.style.display === "block") {
+      //   button.style.backgroundColor = 'rgba(33, 118, 255, 1)';
+      //   element.style.display = "none";
+      //   return;
+      // }
     }
-
-
 
     window.onload = init;
 
