@@ -13,9 +13,6 @@
 </head>
 
 <body>
-  <div class="header">
-    <i class="fas fa-moon"></i>
-  </div>
   <div class="container">
     <div class="inner-container">
       <div class="column-1">
@@ -30,7 +27,7 @@
       </div>
       <div class="vl"></div>
       <div class="column-3">
-        <button class="btn-projects" type="button" onclick="showElement(document.querySelector('.btn-projects'), document.getElementById('projects'))">Projects</button>
+        <button class="btn-projects" type="button" onclick="showElement(document.querySelector('.btn-projects'), document.querySelector('#projects'))">Projects</button>
         <article id="projects">
           <div class="projects-grid">
             <div class="projects-grid-item">
@@ -82,7 +79,7 @@
             </div>
           </div>
         </article>
-        <button class="btn-experience" type="button" onclick="showElement(document.querySelector('.btn-experience'), document.getElementById('experience'))">Experience</button>
+        <button class="btn-experience" type="button" onclick="showElement(document.querySelector('.btn-experience'), document.querySelector('#experience'))">Experience</button>
         <article id="experience">
           <article>
             <h1>Summit Sports LLC - IT Specialist</h1>
@@ -106,6 +103,8 @@
       })
     }
 
+    console.log(document.querySelector('#experience').style.display);
+
     function revealElement(element) {
       const box = element;
       const props = {
@@ -124,44 +123,27 @@
 
     function showElement(button, element) {
 
-      const { easing, tween, styler } = window.popmotion;
-      const divStyler = styler(element);
       console.log(element)
       console.log(element.style.display);
 
-      switch (element.style.display) {
-        case "":
-          button.style.backgroundColor = 'rgb(170, 36, 247)';
-          element.style.display = "block";
-          tween({
-            from: -40,
-            to: { y: 0 },
-            duration: 1000,
-            ease: easing.backOut
-          }).start(divStyler.set);
-          break;
-        case "block":
-          button.style.backgroundColor = 'rgba(33, 118, 255, 1)';
-          element.style.display = "";
-          break;
+      const { easing, tween, styler } = window.popmotion;
+      const divStyler = styler(element);
 
+      if (element.style.display === "") {
+        button.style.backgroundColor = 'rgb(170, 36, 247)';
+        element.style.display = 'block';
+
+        tween({
+          from: -40,
+          to: { y: 0 },
+          duration: 1000,
+          ease: easing.backOut
+        }).start(divStyler.set);
+      } else if (element.style.display === "block") {
+        button.style.backgroundColor = 'rgba(33, 118, 255, 1)';
+        element.style.display = "";
       }
-      // if (element.style.display === "") {
-      //   button.style.backgroundColor = 'rgb(170, 36, 247)';
-      //   element.style.display = "block";
-      //   tween({
-      //     from: -40,
-      //     to: { y: 0 },
-      //     duration: 1000,
-      //     ease: easing.backOut
-      //   }).start(divStyler.set);
-      //   return;
-      // }
-      // else if (element.style.display === "block") {
-      //   button.style.backgroundColor = 'rgba(33, 118, 255, 1)';
-      //   element.style.display = "none";
-      //   return;
-      // }
+
     }
 
     window.onload = init;
