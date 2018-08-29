@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-	margin: 2.5% 5% 0% 5%;
+	margin: 1.25% 5%;
 	padding: 0.75%;
 	border-radius: 10px;
 	background: linear-gradient(
@@ -20,7 +20,7 @@ body {
 }
 
 .inner-container {
-	padding: 0% 2.5% 0% 2.5%;
+	padding: 0% 2.5%;
 	border-radius: 10px;
 	display: grid;
 	grid-template-columns: 50% 1px 50%;
@@ -28,10 +28,11 @@ body {
 }
 
 .column-1 {
-	margin: 5% 10% 5% 10%;
+	margin: 10% 10% auto 10%;
 	background-color: white;
 	border-radius: 20px;
 	text-align: center;
+	font-size: 40px;
 }
 
 .column-1 h1 {
@@ -39,10 +40,21 @@ body {
 }
 
 .column-1 img {
-	margin-bottom: 20px;
+	margin: 5% auto;
+	display: block;
 	border: 4px solid rgba(49, 57, 60, 1);
 	border-radius: 50%;
 	height: 200px;
+}
+
+.column-1 a {
+	margin: 1%;
+	color: rgba(33, 118, 255, 1);
+}
+
+.column-1 a:hover {
+	color: rgb(204, 33, 246);
+	text-shadow: 0px 0px 2px rgba(49, 57, 60, 0.75);
 }
 
 .column-1 article {
@@ -60,7 +72,7 @@ body {
 }
 
 .column-3 {
-	margin: 10% 10% 5% 10%;
+	margin: 10% 10% 10% 10%;
 	background-color: white;
 	border-radius: 20px;
 	text-align: center;
@@ -68,7 +80,7 @@ body {
 
 .column-3 button {
 	padding: 2.5%;
-	margin: 3% auto;
+	margin: auto;
 	width: 100%;
 	background-color: rgba(33, 118, 255, 1);
 	border: none;
@@ -87,8 +99,7 @@ body {
 }
 
 #projects {
-	display: none;
-	margin: 2.5%;
+	margin: 2%;
 	line-height: 1.5em;
 }
 
@@ -111,6 +122,10 @@ body {
 	border-top-right-radius: 10px;
 }
 
+.column-3 .projects-grid-item .title:hover {
+	background-color: rgb(204, 33, 246);
+}
+
 .column-3 .projects-grid-item .title a {
 	font-size: 0.25vwmin;
 	color: white;
@@ -122,7 +137,6 @@ body {
 }
 
 #experience {
-	display: none;
 	margin-left: 15%;
 	text-align: left;
 }
@@ -131,7 +145,7 @@ body {
 	/* For mobile phones: */
 
 	body {
-		padding: 0% 1% 0% 1%;
+		padding: 1% 1% 1% 1%;
 	}
 	.header {
 		margin: 2.5% auto;
