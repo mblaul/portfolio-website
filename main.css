@@ -90,10 +90,6 @@ body {
 	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.86);
 }
 
-.column-3 button:hover {
-	background-color: rgb(204, 33, 246);
-}
-
 .column-3 button:focus {
 	outline: thin dotted;
 }

@@ -27,7 +27,7 @@
       </div>
       <div class="vl"></div>
       <div class="column-3">
-        <button class="btn-projects" type="button" onclick="showElement(document.querySelector('.btn-projects'), document.querySelector('#projects'))">Projects</button>
+        <button class="btn-projects" type="button">Projects</button>
         <article id="projects">
           <div class="projects-grid">
             <div class="projects-grid-item">
@@ -79,7 +79,7 @@
             </div>
           </div>
         </article>
-        <button class="btn-experience" type="button" onclick="showElement(document.querySelector('.btn-experience'), document.querySelector('#experience'))">Experience</button>
+        <button class="btn-experience" type="button">Experience</button>
         <article id="experience">
           <article>
             <h1>Summit Sports LLC - IT Specialist</h1>
@@ -106,11 +106,14 @@
 
     // Animations
     var elementsToReveal = [document.querySelector('.column-1'), document.querySelector('.column-3')]
+
     function init() {
       elementsToReveal.forEach(element => {
         revealElement(element);
+        tweenElement(element);
       })
     }
+
 
     function revealElement(element) {
       const box = element;
@@ -128,24 +131,15 @@
       poser.set(isVisible ? "hidden" : "visible");
     }
 
-    function showElement(button, element) {
-
+    function tweenElement(element) {
       const { easing, tween, styler } = window.popmotion;
       const divStyler = styler(element);
-
-      if (element.style.display === "") {
-        button.style.backgroundColor = 'rgb(170, 36, 247)';
-        element.style.display = 'block';
-        tween({
-          from: -40,
-          to: { y: 0 },
-          duration: 1000,
-          ease: easing.backOut
-        }).start(divStyler.set);
-      } else if (element.style.display === "block") {
-        button.style.backgroundColor = 'rgba(33, 118, 255, 1)';
-        element.style.display = "";
-      }
+      tween({
+        from: -40,
+        to: { y: 0 },
+        duration: 1000,
+        ease: easing.backOut
+      }).start(divStyler.set);
     }
 
     // Modal setup
@@ -172,7 +166,6 @@
         modal.style.display = "none";
       }
     }
-
 
     window.onload = init;
 
