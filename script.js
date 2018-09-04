@@ -96,30 +96,30 @@ function Modal(title, tech, description, link) {
 
 var smarthelphomeModal = new Modal(
 	"SmartHelpHome",
-	"<li>NodeJS</li><li>Express</li><li>MongoDB</li>",
-	"An api for smart home devices",
-	"<a href='https://github.com/mblaul/smarthelphome'>View on GitHub   <i class='fab fa-github'></i></a>"
+	"<li>JavaScript</li><li>NodeJS</li><li>Express</li><li>MongoDB</li><li>Linux</li>",
+	"<p>This project was devloped to help Alzheimer's patients by utilizing smart home devices. For my part of this project I developed an API that the smart home devices used to store data in a NoSQL database.</p>",
+	"<a href='https://github.com/mblaul/smarthelphome'>View on GitHub <i class='fab fa-github'></i></a>"
 );
 
 var devconnectorModal = new Modal(
-	"Devconnector",
-	"<li>NodeJS</li><li>Express</li><li>MongoDB</li>",
-	"An api for smart home devices",
-	"<a href='https://github.com/mblaul/smarthelphome'>View on GitHub   <i class='fab fa-github'></i></a>"
+	"DevConnect",
+	"<li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>NodeJS</li><li>Express</li><li>React</li><li>MongoDB</li>",
+	"<p>DevConnect is a full stack web application built as a part of coursework for an online class. The goal of the web application was to create a social network for developers.</p>",
+	"<a href='https://github.com/mblaul/devconnect'>View on GitHub <i class='fab fa-github'></i></a>"
 );
 
 var apostrophyModal = new Modal(
 	"Apostrophy",
-	"<li>NodeJS</li><li>Express</li><li>MongoDB</li>",
-	"An api for smart home devices",
-	"<a href='https://github.com/mblaul/smarthelphome'>View on GitHub   <i class='fab fa-github'></i></a>"
+	"<li>HTML5</li><li>CSS3</li><li>Python</li><li>Flask</li><li>MySQL</li>",
+	"An application to allow high school students to prepare and study for the ACT / SAT. This app allowed users to register and takes practices tests of varying difficulty levels.",
+	"<a href='https://github.com/mblaul/apostrophy'>View on GitHub <i class='fab fa-github'></i></a>"
 );
 
 var statsdashboardModal = new Modal(
 	"StatsDashboard",
-	"<li>NodeJS</li><li>Express</li><li>MongoDB</li>",
-	"An api for smart home devices",
-	"<a href='https://github.com/mblaul/smarthelphome'>View on GitHub   <i class='fab fa-github'></i></a>"
+	"<li>HTML5</li><li>CSS3</li><li>NodeJS</li><li>Express</li><li>MySQL / MSSQL</li>",
+	"A skeleton application for pulling in an displaying data in charts. Utilizes D3.js to take data from a SQL database and transform into a graphical view.",
+	"<a href='https://github.com/mblaul/analyticsdashboard'>View on GitHub <i class='fab fa-github'></i></a>"
 );
 
 function loadModalInfo(projectModal) {
