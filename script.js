@@ -111,14 +111,14 @@ var devconnectorModal = new Modal(
 var apostrophyModal = new Modal(
 	"Apostrophy",
 	"<li>HTML5</li><li>CSS3</li><li>Python</li><li>Flask</li><li>MySQL</li>",
-	"An application to allow high school students to prepare and study for the ACT / SAT. This app allowed users to register and takes practices tests of varying difficulty levels.",
+	"An application to allow high school students to prepare and study for the ACT / SAT. This app allowed users to register and takes practice tests of varying difficulty levels.",
 	"<a href='https://github.com/mblaul/apostrophy'>View on GitHub <i class='fab fa-github'></i></a>"
 );
 
 var statsdashboardModal = new Modal(
 	"StatsDashboard",
 	"<li>HTML5</li><li>CSS3</li><li>NodeJS</li><li>Express</li><li>MySQL / MSSQL</li>",
-	"A skeleton application for pulling in an displaying data in charts. Utilizes D3.js to take data from a SQL database and transform into a graphical view.",
+	"A skeleton application for pulling in and displaying data in charts. Utilizes D3.js to take data from a SQL database and transform into a graphical view.",
 	"<a href='https://github.com/mblaul/analyticsdashboard'>View on GitHub <i class='fab fa-github'></i></a>"
 );
 
