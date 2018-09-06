@@ -181,6 +181,20 @@ h1#modal-title {
 	margin: 2.5%;
 }
 
+#modal-link input {
+	padding: 1.5%;
+	background-color: rgba(33, 118, 255, 1);
+	border: none;
+	border-radius: 10px;
+	color: white;
+	font: 24px "Source Sans Pro", sans-serif;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.86);
+}
+
+#modal-link input:hover {
+	background-color: rgb(204, 33, 246);
+}
+
 /* The Close Button */
 .close {
 	color: #aaa;
