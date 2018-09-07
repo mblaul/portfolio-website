@@ -210,7 +210,7 @@ h1#modal-title {
 	cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1500px) {
 	/* For mobile phones: */
 
 	body {
