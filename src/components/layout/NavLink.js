@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 
+const styles = theme => ({
+  navLink: {
+    '& a': {
+      color: 'white'
+    }
+  }
+});
 class NavLink extends Component {
   render() {
-    return <div>Link</div>;
+    const { classes, name } = this.props;
+
+    return (
+      <div className={classes.navLink}>
+        <a href={`/#${name}`}>{name}</a>
+      </div>
+    );
   }
 }
 
-export default NavLink;
+NavLink.propTypes = {
+  name: PropTypes.string.isRequired
+};
+
+export default withStyles(styles)(NavLink);

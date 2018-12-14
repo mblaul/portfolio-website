@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-
 import Grid from '@material-ui/core/Grid';
+
+import NavLink from './NavLink';
 
 const styles = theme => ({
   navbar: {
@@ -16,21 +17,17 @@ const styles = theme => ({
 
 class Navbar extends Component {
   render() {
+    const navLinks = ['about', 'contact', 'projects'];
     const { classes } = this.props;
     return (
       <Grid container className={classes.navbar}>
-        <Grid item xs={12} sm={3}>
-          Hello
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          Hello
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          Hello
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          Hello
-        </Grid>
+        {navLinks.map(link => {
+          return (
+            <Grid item xs={12} sm={3}>
+              <NavLink link={link} name={link} />;
+            </Grid>
+          );
+        })}
       </Grid>
     );
   }
