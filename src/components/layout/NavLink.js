@@ -4,8 +4,15 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   navLink: {
+    fontFamily: 'Cabin, sans- serif',
+    padding: '5%',
+    textAlign: 'center',
     '& a': {
-      color: 'white'
+      borderBottom: '1px solid white',
+      color: 'white',
+      padding: '0 7.5% 2% 7.5%',
+      textDecoration: 'none',
+      textTransform: 'uppercase'
     }
   }
 });
