@@ -10,7 +10,8 @@ const styles = theme => ({
     top: '0',
     width: '100%',
     padding: '2% 20%',
-    backgroundColor: 'rgba(#000, .5)'
+    backgroundColor: 'rgba(#000, .5)',
+    zIndex: '1'
   }
 });
 
