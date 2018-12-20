@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 const styles = theme => ({
   header: {
     position: 'relative',
-    padding: '10% 0% 25% 0%',
+    padding: '5% 0% 25% 0%',
     textAlign: 'center',
     backgroundImage: `linear-gradient(${theme.palette.primary.main}, ${
       theme.palette.secondary.main
@@ -17,9 +17,19 @@ const styles = theme => ({
       position: 'absolute',
       bottom: '0',
       width: '100%',
-      height: '10vw',
-      border: '1px solid black'
+      height: '10vw'
       /* set height to pixels if you want angle to change with screen width */
+    },
+    '& h1': {
+      color: theme.palette.common.white,
+      fontFamily: 'Cabin, sans- serif',
+      fontSize: '46px',
+      letterSpacing: '2px',
+      marginTop: '10%',
+      transition: 'font-size .5s ease-out',
+      '&:hover': {
+        fontSize: '50px'
+      }
     }
   }
 });
@@ -33,7 +43,7 @@ class Header extends Component {
         <header>
           <Grid container className={classes.header}>
             <Grid item xs={12}>
-              <h1>Header</h1>
+              <h1>Let's build something great together!</h1>
             </Grid>
             <svg
               xmlns="http://www.w3.org/2000/svg"
