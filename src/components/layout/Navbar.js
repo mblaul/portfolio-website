@@ -11,20 +11,51 @@ const styles = theme => ({
     width: '100%',
     padding: '2% 20%',
     backgroundColor: 'rgba(#000, .5)',
-    zIndex: '1'
+    zIndex: '1',
+    transition: 'background-color .2s ease, box-shadow .2s ease'
+  },
+  scrolled: {
+    backgroundColor: theme.palette.common.white,
+    boxShadow: `0px -10px 25px 1px rgba(0,0,0,0.75)`
   }
 });
 
 class Navbar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isTop: true
+    };
+  }
+
+  componentDidMount() {
+    document.addEventListener('scroll', () => {
+      const isTop = window.scrollY < 570;
+      if (isTop) {
+        this.setState({ isTop: true });
+      } else {
+        this.setState({ isTop: false });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll');
+  }
+
   render() {
     const navLinks = ['about', 'projects', 'contact'];
     const { classes } = this.props;
+    const { isTop } = this.state;
     return (
-      <Grid container className={classes.navbar}>
+      <Grid
+        container
+        className={`${!isTop && classes.scrolled} ${classes.navbar}`}
+      >
         {navLinks.map(link => {
           return (
             <Grid item xs={12} sm={4}>
-              <NavLink link={link} name={link} />
+              <NavLink isTop={isTop} link={link} name={link} />
             </Grid>
           );
         })}

@@ -23,14 +23,24 @@ const styles = theme => ({
         opacity: '1'
       }
     }
+  },
+  scrolled: {
+    '& a': {
+      borderBottom: `1px solid ${theme.palette.secondary.main}`,
+      color: theme.palette.primary.light,
+      '&:hover': {
+        borderBottom: `7px solid ${theme.palette.secondary.main}`,
+        color: theme.palette.primary.light
+      }
+    }
   }
 });
 class NavLink extends Component {
   render() {
-    const { classes, name } = this.props;
+    const { classes, isTop, name } = this.props;
 
     return (
-      <div className={classes.navLink}>
+      <div className={`${classes.navLink} ${!isTop && classes.scrolled}`}>
         <a href={`/#${name}`}>{name}</a>
       </div>
     );
