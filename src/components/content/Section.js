@@ -5,7 +5,11 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-const styles = theme => ({});
+const styles = theme => ({
+  root: {
+    padding: '0% 2.5%'
+  }
+});
 
 class Section extends Component {
   render() {
