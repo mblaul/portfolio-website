@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 
 import Section from './Section';
 import { Typography } from '@material-ui/core';
@@ -31,6 +32,7 @@ class Content extends Component {
             About
           </Typography>
         </Grid>
+        <Divider />
         <Grid item xs={12} lg={8}>
           <Section />
         </Grid>
@@ -43,6 +45,7 @@ class Content extends Component {
             Projects
           </Typography>
         </Grid>
+        <Divider variant="middle" />
         <Grid item xs={12} lg={8}>
           <Section />
         </Grid>
@@ -55,6 +58,7 @@ class Content extends Component {
             Contact
           </Typography>
         </Grid>
+        <Divider variant="middle" />
         <Grid item xs={12} lg={8}>
           <Section />
         </Grid>

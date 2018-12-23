@@ -9,7 +9,7 @@ const styles = theme => ({
     position: 'fixed',
     top: '0',
     width: '100%',
-    padding: '1% 20% 1.5% 20%',
+    padding: '0.5% 20% 1% 20%',
     backgroundColor: 'rgba(#000, .5)',
     borderBottomLeftRadius: '5px',
     borderBottomRightRadius: '5px',
