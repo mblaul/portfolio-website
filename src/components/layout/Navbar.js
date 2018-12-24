@@ -49,14 +49,16 @@ class Navbar extends Component {
     const navLinks = ['about', 'projects', 'contact'];
     const { classes } = this.props;
     const { isTop } = this.state;
+
     return (
       <Grid
         container
         className={`${!isTop && classes.scrolled} ${classes.navbar}`}
       >
+        <div className={classes.branding}>{'<mb />'}</div>
         {navLinks.map(link => {
           return (
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={3}>
               <NavLink isTop={isTop} link={link} name={link} />
             </Grid>
           );
