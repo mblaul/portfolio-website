@@ -22,7 +22,7 @@ const styles = theme => ({
     },
     '& h1': {
       color: theme.palette.common.white,
-      fontFamily: 'Cabin, sans- serif',
+      fontFamily: 'Cabin, sans-serif',
       fontSize: '46px',
       letterSpacing: '2px',
       marginTop: '10%',

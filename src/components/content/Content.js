@@ -9,10 +9,14 @@ import { Typography } from '@material-ui/core';
 
 const styles = theme => ({
   content: {
-    padding: '2.5% 7.5%'
+    padding: '2.5% 7.5%',
+    '& hr': {
+      border: '1px solid black'
+    }
   },
   sectionTitle: {
-    mx: '0px auto',
+    fontFamily: 'Cabin, sans-serif',
+    color: theme.palette.common.black,
     padding: '1% 0%',
     textAlign: 'center'
   }
@@ -34,7 +38,7 @@ class Content extends Component {
         </Grid>
         <Divider />
         <Grid item xs={12} lg={8}>
-          <Section />
+          <Section alignment={'left'} />
         </Grid>
         <Grid item xs={12}>
           <Typography
@@ -45,9 +49,9 @@ class Content extends Component {
             Projects
           </Typography>
         </Grid>
-        <Divider variant="middle" />
+        <Divider />
         <Grid item xs={12} lg={8}>
-          <Section />
+          <Section alignment={'right'} />
         </Grid>
         <Grid item xs={12}>
           <Typography
@@ -58,9 +62,9 @@ class Content extends Component {
             Contact
           </Typography>
         </Grid>
-        <Divider variant="middle" />
+        <Divider />
         <Grid item xs={12} lg={8}>
-          <Section />
+          <Section alignment={'left'} />
         </Grid>
       </Grid>
     );
