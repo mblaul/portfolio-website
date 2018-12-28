@@ -55,10 +55,9 @@ class Navbar extends Component {
         container
         className={`${!isTop && classes.scrolled} ${classes.navbar}`}
       >
-        <div className={classes.branding}>{'<mb />'}</div>
         {navLinks.map(link => {
           return (
-            <Grid item xs={12} sm={3}>
+            <Grid item xs={12} sm={4}>
               <NavLink isTop={isTop} link={link} name={link} />
             </Grid>
           );

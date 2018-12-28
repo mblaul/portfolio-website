@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 
 import Section from './Section';
+import Projects from './projects/Projects';
 import { Typography } from '@material-ui/core';
 
 const styles = theme => ({
@@ -32,6 +33,7 @@ class Content extends Component {
             variant="h2"
             gutterBottom
             className={classes.sectionTitle}
+            id="about"
           >
             About
           </Typography>
@@ -45,19 +47,21 @@ class Content extends Component {
             variant="h2"
             gutterBottom
             className={classes.sectionTitle}
+            id="projects"
           >
             Projects
           </Typography>
         </Grid>
         <Divider />
         <Grid item xs={12} lg={8}>
-          <Section alignment={'right'} />
+          <Projects />
         </Grid>
         <Grid item xs={12}>
           <Typography
             variant="h2"
             gutterBottom
             className={classes.sectionTitle}
+            id="contact"
           >
             Contact
           </Typography>
