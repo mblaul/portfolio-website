@@ -3,11 +3,11 @@ import Project from './Project';
 
 class Projects extends Component {
   render() {
-    const projects = ['website', 'skypi'];
+    const headers = ['website', 'skypi', 'apostrophy'];
     return (
       <>
-        {projects.map(link => {
-          return <Project />;
+        {headers.map(header => {
+          return <Project header={header} />;
         })}
       </>
     );

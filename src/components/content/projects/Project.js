@@ -1,8 +1,18 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
 
 class Project extends Component {
   render() {
-    return <div>Card Here</div>;
+    const { body, header, image } = this.props;
+
+    return (
+      <Card>
+        {header}
+        <CardContent>{body}</CardContent>
+      </Card>
+    );
   }
 }
 
