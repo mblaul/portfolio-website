@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import TopNavLink from '../TopNavLink';
@@ -8,11 +7,8 @@ const TopNavStyles = styled.nav`
   ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    padding: 2vw 20vw 0 0;
+    padding: 2vw 15vw 0 1.5vw;
     list-style-type: none;
-    li {
-      text-align: center;
-    }
   }
 `;
 
