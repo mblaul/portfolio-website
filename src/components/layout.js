@@ -16,6 +16,7 @@ import GlobalStyles from './GlobalStyles';
 import Sidebar from './layout/Sidebar';
 import Main from './layout/Main';
 import TopNav from './layout/TopNav';
+import Content from './layout/Content';
 
 import './css/normalize.css';
 import { theme } from './config/theme';
@@ -44,17 +45,7 @@ const Layout = ({ children }) => {
             <Sidebar />
             <Main>
               <TopNav />
-              <div
-                style={{
-                  margin: `0 auto`,
-                  maxWidth: 960,
-                  padding: `0px 1.0875rem 1.45rem`,
-                  paddingTop: 0,
-                }}
-              >
-                <div>{children}</div>
-                <footer>Footer</footer>
-              </div>
+              <Content>{children}</Content>
             </Main>
           </LayoutStyles>
         </GlobalStyles>

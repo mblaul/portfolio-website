@@ -4,6 +4,10 @@ const color = {
   main: `rgba(127, 44, 203, 1)`,
   color4: `rgba(65, 67, 97, 1)`,
   color5: `rgba(42, 45, 67, 1)`,
+  electricPink: `rgba(240, 5, 193, 1)`,
+  grey: {
+    dark: `rgba(25, 25, 25, 1)`,
+  },
 };
 
 export const theme = {

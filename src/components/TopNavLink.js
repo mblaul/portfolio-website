@@ -5,31 +5,30 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const LinkStyles = styled.li`
-  &:not(:first-of-type) {
-    border-left: 1px solid ${(props) => props.theme.color.main};
-  }
-  &:not(:last-of-type) {
-    border-right: 1px solid ${(props) => props.theme.color.main};
-  }
+  border: 2px solid ${(props) => props.theme.color.main};
 
   a {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 3em;
-    font-size: 1.3em;
-    color: ${(props) => props.theme.color.color5};
+    font: 900 1.3em Muli, sans-serif;
+    color: white;
     text-decoration: none;
 
-    transition: all ease-in 0.25s;
-
     &:visited {
-      color: ${(props) => props.theme.color.color5};
+      color: white;
     }
 
-    &:hover {
-      background-color: ${(props) => props.theme.color.main};
+    &:hover,
+    &:active,
+    &:focus {
       color: white;
+      background-image: linear-gradient(
+        135deg,
+        ${(props) => props.theme.color.main},
+        ${(props) => props.theme.color.electricPink}
+      );
       &:visited {
         color: white;
       }

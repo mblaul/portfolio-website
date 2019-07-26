@@ -7,7 +7,8 @@ const TopNavStyles = styled.nav`
   ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    padding: 2vw 15vw 0 1.5vw;
+    grid-column-gap: 1em;
+    padding: 2vw 15vw 0 2vw;
     list-style-type: none;
   }
 `;

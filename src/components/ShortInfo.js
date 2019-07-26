@@ -7,9 +7,11 @@ const ShortInfoStyles = styled.div`
   padding: 1em;
   padding-bottom: 2em;
   .name {
-    font: 700 3rem 'Playfair Display', serif;
+    font: 400 3rem 'Galada', cursive;
     letter-spacing: 3px;
-    text-shadow: 0 0 5px ${(props) => props.theme.color.color4};
+    text-shadow: -1px -1px 0 ${(props) => props.theme.color.accent}, 1px -1px 0 ${(props) => props.theme.color.accent},
+      -1px 1px 0 ${(props) => props.theme.color.accent}, 1px 1px 0 ${(props) => props.theme.color.accent},
+      2px 2px 1px ${(props) => props.theme.color.main}, 3px 3px 1px ${(props) => props.theme.color.main};
   }
   .short-description {
     font-size: 0.85em;
