@@ -6,7 +6,7 @@ import TopNavLink from '../TopNavLink';
 const TopNavStyles = styled.nav`
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 1em;
     padding: 2vw 15vw 0 2vw;
     list-style-type: none;

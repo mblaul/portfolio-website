@@ -16,14 +16,18 @@ const ShortInfoStyles = styled.div`
       2px 2px 1px ${(props) => props.theme.color.main}, 3px 3px 1px ${(props) => props.theme.color.main};
     transition: all ease 1s;
     &.intro {
-      margin: auto;
       font: 400 8em 'Galada', cursive;
     }
   }
   .short-description {
-    padding-top: 1em;
+    padding-bottom: 3em;
     font-size: 0.85em;
-    text-align: right;
+    text-align: center;
+    margin: auto;
+    transition: all ease 1s;
+    &.intro {
+      font-size: 1.5em;
+    }
   }
 `;
 
@@ -48,8 +52,10 @@ class ShortInfo extends Component {
     return (
       <ShortInfoStyles>
         <div className={`name ${sidedrawerOpen ? `intro` : ``}`}>Matt Blaul</div>
+        <div className={`short-description  ${sidedrawerOpen ? `intro` : ``}`}>
+          Web Developer, Cat Fanatic, Michigander
+        </div>
         <ActionShotStyles />
-        <div className="short-description">Web Developer, Cat Fanatic, Michigander</div>
         <span onClick={this.handleOpenButtonClick}>See More -></span>
       </ShortInfoStyles>
     );

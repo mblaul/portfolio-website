@@ -12,6 +12,7 @@ const LinkStyles = styled.li`
     align-items: center;
     justify-content: center;
     height: 3em;
+    min-width: 100px;
     font: 900 1.3em Muli, sans-serif;
     color: white;
     text-decoration: none;
