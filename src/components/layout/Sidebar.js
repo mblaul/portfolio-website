@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+
+import { StateContext } from '../state';
 
 import ShortInfo from '../ShortInfo';
 
@@ -17,23 +19,27 @@ const SidebarStyles = styled.div`
   flex: 0 0 100vw;
   transition: flex-basis 1s ease-in-out;
 
-  &.shrunken {
+  &.shrink {
     flex-basis: 20vw;
   }
 `;
 
 const SidebarContainerStyles = styled.div`padding: 1em;`;
 
-const Sidebar = (props) => {
-  const [ isShrunken, setIsShrunken ] = useState(false);
+class Sidebar extends Component {
+  static contextType = StateContext;
 
-  return (
-    <SidebarStyles className={isShrunken ? 'shrunken' : 'full-width'}>
-      <SidebarContainerStyles>
-        <ShortInfo setIsShrunken={setIsShrunken} />
-      </SidebarContainerStyles>
-    </SidebarStyles>
-  );
-};
+  render() {
+    const [ { sidedrawerOpen }, setSidedrawerOpen ] = this.context;
+
+    return (
+      <SidebarStyles className={sidedrawerOpen ? '' : 'shrink'}>
+        <SidebarContainerStyles>
+          <ShortInfo sidedrawerOpen={sidedrawerOpen} setSidedrawerOpen={setSidedrawerOpen} />
+        </SidebarContainerStyles>
+      </SidebarStyles>
+    );
+  }
+}
 
 export default Sidebar;
