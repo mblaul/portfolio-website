@@ -25,7 +25,7 @@ const LinkStyles = styled.li`
     &:focus {
       color: white;
       background-image: linear-gradient(
-        135deg,
+        -15deg,
         ${(props) => props.theme.color.main},
         ${(props) => props.theme.color.electricPink}
       );

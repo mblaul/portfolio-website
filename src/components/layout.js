@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -21,11 +21,6 @@ import Content from './layout/Content';
 import './css/normalize.css';
 import { theme } from './config/theme';
 
-const LayoutStyles = styled.div`
-  display: grid;
-  grid-template-columns: 20vw 80vw;
-`;
-
 const Layout = ({ children }) => {
   const { site: { siteMetadata: { title } } } = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -36,6 +31,15 @@ const Layout = ({ children }) => {
       }
     }
   `);
+
+  const LayoutStyles = styled.div`
+    max-width: 100vw;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+  `;
 
   return (
     <Fragment>
