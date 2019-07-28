@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import Button from './common/Button';
+
 const ShortInfoStyles = styled.div`
   color: white;
   border-bottom: 3px solid ${(props) => props.theme.color.main};
@@ -43,7 +45,7 @@ class ShortInfo extends Component {
     const { setSidedrawerOpen } = this.props;
 
     setSidedrawerOpen({
-      type: 'changeSidedrawer',
+      type: 'toggleSidedrawer',
     });
   };
   render() {
@@ -56,7 +58,7 @@ class ShortInfo extends Component {
           Web Developer, Cat Fanatic, Michigander
         </div>
         <ActionShotStyles />
-        <span onClick={this.handleOpenButtonClick}>See More -></span>
+        <Button onClick={this.handleOpenButtonClick}>See More</Button>
       </ShortInfoStyles>
     );
   }

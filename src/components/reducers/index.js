@@ -1,6 +1,6 @@
 export const reducer = (state, action) => {
   switch (action.type) {
-    case 'changeSidedrawer':
+    case 'toggleSidedrawer':
       return {
         ...state,
         sidedrawerOpen: !state.sidedrawerOpen,

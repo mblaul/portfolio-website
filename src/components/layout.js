@@ -24,13 +24,21 @@ import Content from './layout/Content';
 import './css/normalize.css';
 import { theme } from './config/theme';
 
+import { mediaQueryBreakpoints } from './config/constants';
+
 const LayoutStyles = styled.div`
   max-width: 100vw;
   max-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   overflow-x: hidden;
+
+  @media (min-width: ${mediaQueryBreakpoints.sm}) {
+    display: block;
+  }
+  @media (min-width: ${mediaQueryBreakpoints.med}) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 `;
 
 const Layout = ({ children }) => {

@@ -10,6 +10,12 @@ const Styles = styled.div`
   box-sizing: border-box;
   background-color: ${(props) => props.theme.color.grey.dark};
   color: white;
+  *::selection {
+    background: ${(props) => props.theme.color.electricPink}; /* WebKit/Blink Browsers */
+  }
+  *::-moz-selection {
+    background: ${(props) => props.theme.color.electricPink}; /* Gecko Browsers */
+  }
 `;
 
 const GlobalStyles = ({ children }) => {

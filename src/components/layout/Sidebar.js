@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { StateContext } from '../state';
 
+import { mediaQueryBreakpoints } from '../config/constants';
+
 import ShortInfo from '../ShortInfo';
 
 const SidebarStyles = styled.div`
