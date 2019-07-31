@@ -19,14 +19,30 @@ const SidebarStyles = styled.div`
   z-index: 1000;
 
   flex: 0 0 100vw;
-  transition: flex-basis 1s ease-in-out;
+  transition: all 1s ease-in-out;
 
   &.shrink {
-    flex-basis: 20vw;
+    @media (max-width: ${mediaQueryBreakpoints.med}) {
+      position: fixed;
+      width: 100vw;
+      height: 10vh;
+    }
+    @media (min-width: ${mediaQueryBreakpoints.med}) {
+      flex-basis: 20vw;
+    }
   }
 `;
 
-const SidebarContainerStyles = styled.div`padding: 1em;`;
+const SidebarContainerStyles = styled.div`
+  @media (max-width: ${mediaQueryBreakpoints.med}) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: ${mediaQueryBreakpoints.med}) {
+    padding: 1em;
+  }
+`;
 
 class Sidebar extends Component {
   static contextType = StateContext;

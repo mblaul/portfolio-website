@@ -1,34 +1,61 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import { mediaQueryBreakpoints } from './config/constants';
 
 import Button from './common/Button';
 
 const ShortInfoStyles = styled.div`
   color: white;
-  border-bottom: 3px solid ${(props) => props.theme.color.main};
-  padding: 1.5em 1em;
-  padding-bottom: 2em;
+
+  @media (max-width: ${mediaQueryBreakpoints.med}) {
+    padding: 0;
+  }
+  @media (min-width: ${mediaQueryBreakpoints.med}) {
+    padding: 1.5em 1em;
+    padding-bottom: 2em;
+    border-bottom: 3px solid ${(props) => props.theme.color.main};
+  }
+
   .name {
-    font: 400 4.5em 'Galada', cursive;
-    text-align: center;
-    letter-spacing: 3px;
+    font: 400 3vw 'Galada', cursive;
+    letter-spacing: 1px;
     text-shadow: -1px -1px 0 ${(props) => props.theme.color.accent}, 1px -1px 0 ${(props) => props.theme.color.accent},
       -1px 1px 0 ${(props) => props.theme.color.accent}, 1px 1px 0 ${(props) => props.theme.color.accent},
       2px 2px 1px ${(props) => props.theme.color.main}, 3px 3px 1px ${(props) => props.theme.color.main};
     transition: all ease 1s;
+
     &.intro {
-      font: 400 8em 'Galada', cursive;
+      font-size: 10vw;
+    }
+
+    @media (max-width: ${mediaQueryBreakpoints.med}) {
+      padding: 0;
+      font-size: 8vw;
+    }
+    @media (min-width: ${mediaQueryBreakpoints.med}) {
+      padding-bottom: 3em;
+      text-align: center;
+      margin: auto;
     }
   }
   .short-description {
-    padding-bottom: 3em;
     font-size: 0.85em;
-    text-align: center;
-    margin: auto;
+
     transition: all ease 1s;
     &.intro {
-      font-size: 1.5em;
+      font-size: 2vw;
+    }
+
+    @media (max-width: ${mediaQueryBreakpoints.med}) {
+      padding: 0;
+      display: none;
+    }
+    @media (min-width: ${mediaQueryBreakpoints.med}) {
+      padding-bottom: 3em;
+      text-align: center;
+      margin: auto;
     }
   }
 `;
@@ -57,8 +84,12 @@ class ShortInfo extends Component {
         <div className={`short-description  ${sidedrawerOpen ? `intro` : ``}`}>
           Web Developer, Cat Fanatic, Michigander
         </div>
-        <ActionShotStyles />
-        <Button onClick={this.handleOpenButtonClick}>See More</Button>
+        {sidedrawerOpen && (
+          <Fragment>
+            <ActionShotStyles />
+            <Button onClick={this.handleOpenButtonClick}>See More</Button>
+          </Fragment>
+        )}
       </ShortInfoStyles>
     );
   }

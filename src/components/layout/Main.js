@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { StateContext } from '../state';
+import { mediaQueryBreakpoints } from '../config/constants';
 
 const MainStyles = styled.div`
   height: 100vh;
@@ -10,6 +11,10 @@ const MainStyles = styled.div`
   transition: all ease 2s;
   &.hidden {
     opacity: 0;
+  }
+
+  @media (max-width: ${mediaQueryBreakpoints.med}) {
+    padding-top: 10vh;
   }
 `;
 class Main extends Component {

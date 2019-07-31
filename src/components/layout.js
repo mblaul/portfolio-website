@@ -31,13 +31,13 @@ const LayoutStyles = styled.div`
   max-height: 100vh;
   overflow-x: hidden;
 
-  @media (min-width: ${mediaQueryBreakpoints.sm}) {
-    display: block;
-  }
   @media (min-width: ${mediaQueryBreakpoints.med}) {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+  }
+  @media (max-width: ${mediaQueryBreakpoints.med}) {
+    display: block;
   }
 `;
 
