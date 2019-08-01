@@ -5,16 +5,16 @@ export function getScreenSize() {
   const { xs, sm, med, lrg } = mediaQueryBreakpoints;
   let screenSize;
 
-  if (windowWidth <= xs) {
-    screenSize = `extra-small`;
-  } else if (windowWidth <= sm) {
-    screenSize = `small`;
-  } else if (windowWidth <= med) {
-    screenSize = `medium`;
-  } else if (windowWidth <= lrg) {
-    screenSize = `large`;
+  if (windowWidth <= xs.size) {
+    screenSize = xs.name;
+  } else if (windowWidth <= sm.size) {
+    screenSize = sm.name;
+  } else if (windowWidth <= med.size) {
+    screenSize = med.name;
+  } else if (windowWidth <= lrg.size) {
+    screenSize = lrg.name;
   } else {
-    screenSize = `medium`;
+    screenSize = med.name;
   }
   return screenSize;
 }

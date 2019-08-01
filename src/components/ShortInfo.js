@@ -10,10 +10,10 @@ import Button from './common/Button';
 const ShortInfoStyles = styled.div`
   color: white;
 
-  @media (max-width: ${mediaQueryBreakpoints.med}) {
+  @media (max-width: ${mediaQueryBreakpoints.med.px}) {
     padding: 0;
   }
-  @media (min-width: ${mediaQueryBreakpoints.med}) {
+  @media (min-width: ${mediaQueryBreakpoints.med.px}) {
     padding: 1.5em 1em;
     padding-bottom: 2em;
     border-bottom: 3px solid ${(props) => props.theme.color.main};
@@ -32,12 +32,11 @@ const ShortInfoStyles = styled.div`
       padding-bottom: 0;
     }
 
-    @media (max-width: ${mediaQueryBreakpoints.med}) {
+    @media (max-width: ${mediaQueryBreakpoints.med.px}) {
       padding: 0;
       font-size: 8vw;
     }
-    @media (min-width: ${mediaQueryBreakpoints.med}) {
-      padding-bottom: 3em;
+    @media (min-width: ${mediaQueryBreakpoints.med.px}) {
       text-align: center;
       margin: auto;
     }
@@ -50,12 +49,12 @@ const ShortInfoStyles = styled.div`
       font-size: 2vw;
     }
 
-    @media (max-width: ${mediaQueryBreakpoints.med}) {
+    @media (max-width: ${mediaQueryBreakpoints.med.px}) {
       padding: 0;
       display: none;
     }
-    @media (min-width: ${mediaQueryBreakpoints.med}) {
-      padding-bottom: 3em;
+    @media (min-width: ${mediaQueryBreakpoints.med.px}) {
+      padding-top: 1em;
       text-align: center;
       margin: auto;
     }
@@ -81,7 +80,6 @@ class ShortInfo extends Component {
     const { sidedrawerOpen } = this.props;
 
     const screenSize = getScreenSize();
-    console.log(screenSize);
 
     return (
       <ShortInfoStyles>

@@ -22,24 +22,24 @@ const SidebarStyles = styled.div`
   transition: all 1s ease-in-out;
 
   &.shrink {
-    @media (max-width: ${mediaQueryBreakpoints.med}) {
+    @media (max-width: ${mediaQueryBreakpoints.med.px}) {
       position: fixed;
       width: 100vw;
       height: 10vh;
     }
-    @media (min-width: ${mediaQueryBreakpoints.med}) {
+    @media (min-width: ${mediaQueryBreakpoints.med.px}) {
       flex-basis: 20vw;
     }
   }
 `;
 
 const SidebarContainerStyles = styled.div`
-  @media (max-width: ${mediaQueryBreakpoints.med}) {
+  @media (max-width: ${mediaQueryBreakpoints.med.px}) {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  @media (min-width: ${mediaQueryBreakpoints.med}) {
+  @media (min-width: ${mediaQueryBreakpoints.med.px}) {
     padding: 1em;
   }
 `;

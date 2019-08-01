@@ -13,7 +13,7 @@ const MainStyles = styled.div`
     opacity: 0;
   }
 
-  @media (max-width: ${mediaQueryBreakpoints.med}) {
+  @media (max-width: ${mediaQueryBreakpoints.med.px}) {
     padding-top: 10vh;
   }
 `;
