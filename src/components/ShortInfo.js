@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { mediaQueryBreakpoints } from './config/constants';
+import { getScreenSize } from './utils/screenSizeHelper';
 
 import Button from './common/Button';
 
@@ -28,6 +29,7 @@ const ShortInfoStyles = styled.div`
 
     &.intro {
       font-size: 10vw;
+      padding-bottom: 0;
     }
 
     @media (max-width: ${mediaQueryBreakpoints.med}) {
@@ -78,15 +80,18 @@ class ShortInfo extends Component {
   render() {
     const { sidedrawerOpen } = this.props;
 
+    const screenSize = getScreenSize();
+    console.log(screenSize);
+
     return (
       <ShortInfoStyles>
         <div className={`name ${sidedrawerOpen ? `intro` : ``}`}>Matt Blaul</div>
+        {screenSize !== 'extra-small' && <ActionShotStyles />}
         <div className={`short-description  ${sidedrawerOpen ? `intro` : ``}`}>
           Web Developer, Cat Fanatic, Michigander
         </div>
         {sidedrawerOpen && (
           <Fragment>
-            <ActionShotStyles />
             <Button onClick={this.handleOpenButtonClick}>See More</Button>
           </Fragment>
         )}
