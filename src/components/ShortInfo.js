@@ -29,12 +29,16 @@ const ShortInfoStyles = styled.div`
 
     &.intro {
       font-size: 10vw;
-      padding-bottom: 0;
     }
 
     @media (max-width: ${mediaQueryBreakpoints.med.px}) {
       padding: 0;
+      width: max-content;
       font-size: 8vw;
+      padding-top: 0.2em;
+      &.intro {
+        margin: auto;
+      }
     }
     @media (min-width: ${mediaQueryBreakpoints.med.px}) {
       text-align: center;
@@ -59,6 +63,11 @@ const ShortInfoStyles = styled.div`
       margin: auto;
     }
   }
+
+  .see-more {
+    display: block;
+    margin: 2em auto;
+  }
 `;
 
 const ActionShotStyles = styled.div`
@@ -80,18 +89,20 @@ class ShortInfo extends Component {
     const { sidedrawerOpen } = this.props;
 
     const screenSize = getScreenSize();
+    const showActionShot = sidedrawerOpen || screenSize !== 'extra-small';
 
     return (
       <ShortInfoStyles>
         <div className={`name ${sidedrawerOpen ? `intro` : ``}`}>Matt Blaul</div>
-        {screenSize !== 'extra-small' && <ActionShotStyles />}
+        {showActionShot && <ActionShotStyles />}
         <div className={`short-description  ${sidedrawerOpen ? `intro` : ``}`}>
           Web Developer, Cat Fanatic, Michigander
         </div>
+
         {sidedrawerOpen && (
-          <Fragment>
-            <Button onClick={this.handleOpenButtonClick}>See More</Button>
-          </Fragment>
+          <Button classNames="see-more" onClick={this.handleOpenButtonClick}>
+            See More
+          </Button>
         )}
       </ShortInfoStyles>
     );

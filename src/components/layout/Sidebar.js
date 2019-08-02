@@ -33,16 +33,7 @@ const SidebarStyles = styled.div`
   }
 `;
 
-const SidebarContainerStyles = styled.div`
-  @media (max-width: ${mediaQueryBreakpoints.med.px}) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: ${mediaQueryBreakpoints.med.px}) {
-    padding: 1em;
-  }
-`;
+const SidebarContainerStyles = styled.div`@media (min-width: ${mediaQueryBreakpoints.med.px}) {padding: 1em;}`;
 
 class Sidebar extends Component {
   static contextType = StateContext;
