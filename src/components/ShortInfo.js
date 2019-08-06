@@ -8,8 +8,6 @@ import { getScreenSize } from './utils/screenSizeHelper';
 import Button from './common/Button';
 
 const ShortInfoStyles = styled.div`
-  color: white;
-
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
     padding: 0;
   }
@@ -19,32 +17,52 @@ const ShortInfoStyles = styled.div`
     border-bottom: 3px solid ${(props) => props.theme.color.main};
   }
 
-  .name {
-    font: 400 3vw 'Galada', cursive;
-    letter-spacing: 1px;
-    text-shadow: -1px -1px 0 ${(props) => props.theme.color.accent}, 1px -1px 0 ${(props) => props.theme.color.accent},
-      -1px 1px 0 ${(props) => props.theme.color.accent}, 1px 1px 0 ${(props) => props.theme.color.accent},
-      2px 2px 1px ${(props) => props.theme.color.main}, 3px 3px 1px ${(props) => props.theme.color.main};
-    transition: all ease 1s;
+  .mobile-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.6em;
+    .name {
+      font: 400 3vw 'Galada', cursive;
+      letter-spacing: 1px;
+      text-shadow: -1px -1px 0 ${(props) => props.theme.color.accent}, 1px -1px 0 ${(props) => props.theme.color.accent},
+        -1px 1px 0 ${(props) => props.theme.color.accent}, 1px 1px 0 ${(props) => props.theme.color.accent},
+        2px 2px 1px ${(props) => props.theme.color.main}, 3px 3px 1px ${(props) => props.theme.color.main};
+      transition: all ease 1s;
 
-    &.intro {
-      font-size: 10vw;
-    }
-
-    @media (max-width: ${mediaQueryBreakpoints.med.px}) {
-      padding: 0;
-      width: max-content;
-      font-size: 8vw;
-      padding-top: 0.2em;
       &.intro {
+        font-size: 10vw;
+      }
+
+      @media (max-width: ${mediaQueryBreakpoints.med.px}) {
+        padding: 0;
+        font-size: 8vw;
+        width: 0;
+        flex-basis: 70%;
+
+        &.intro {
+          flex-basis: 100%;
+          transform: translateX(28%);
+        }
+      }
+      @media (min-width: ${mediaQueryBreakpoints.med.px}) {
+        text-align: center;
         margin: auto;
       }
     }
-    @media (min-width: ${mediaQueryBreakpoints.med.px}) {
-      text-align: center;
-      margin: auto;
+    .button-container {
+      .nav-button {
+        flex-basis: 30%;
+        padding: 0.5em;
+        width: 50px;
+        height: 50px;
+        &.intro {
+          display: none;
+        }
+      }
     }
   }
+
   .short-description {
     font-size: 0.85em;
 
@@ -66,7 +84,7 @@ const ShortInfoStyles = styled.div`
 
   .see-more {
     display: block;
-    margin: 2em auto;
+    margin: 1.5em auto;
   }
 `;
 
@@ -89,13 +107,22 @@ class ShortInfo extends Component {
     const { sidedrawerOpen } = this.props;
 
     const screenSize = getScreenSize();
-    const showActionShot = sidedrawerOpen || screenSize !== 'extra-small';
+    const isMobile = screenSize === `extra-small` || screenSize === `small`;
+    const showDesktopVersion = sidedrawerOpen || screenSize !== `extra-small`;
 
     return (
       <ShortInfoStyles>
-        <div className={`name ${sidedrawerOpen ? `intro` : ``}`}>Matt Blaul</div>
-        {showActionShot && <ActionShotStyles />}
-        <div className={`short-description  ${sidedrawerOpen ? `intro` : ``}`}>
+        <div className={`mobile-nav-container`}>
+          <span className={`name ${sidedrawerOpen ? `intro` : ``}`}>Matt Blaul</span>
+          {!sidedrawerOpen &&
+          isMobile && (
+            <div className="button-container">
+              <Button classNames={`nav-button ${sidedrawerOpen ? `intro` : ``}`} text="\/" />
+            </div>
+          )}
+        </div>
+        {showDesktopVersion && <ActionShotStyles />}
+        <div className={`short-description ${sidedrawerOpen ? `intro` : ``}`}>
           Web Developer, Cat Fanatic, Michigander
         </div>
 

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { theme } from '../config/theme';
 
 const Button = (props) => {
-  const { borderColor, children, classNames, onClick, text } = props;
+  const { borderColor, children, classNames, onClick, styles, text } = props;
 
   const ButtonStyles = styled.button`
     background-color: transparent;
@@ -20,7 +20,7 @@ const Button = (props) => {
   `;
 
   return (
-    <ButtonStyles className={classNames} onClick={onClick}>
+    <ButtonStyles className={classNames} style={styles} onClick={onClick}>
       {text || children}
     </ButtonStyles>
   );

@@ -25,6 +25,7 @@ import './css/normalize.css';
 import { theme } from './config/theme';
 
 import { mediaQueryBreakpoints } from './config/constants';
+import { getScreenSize } from './utils/screenSizeHelper';
 
 const LayoutStyles = styled.div`
   max-width: 100vw;
@@ -53,6 +54,7 @@ const Layout = ({ children }) => {
   `);
 
   const initialState = {
+    screenSize: getScreenSize(),
     sidedrawerOpen: true,
   };
 
