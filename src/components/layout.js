@@ -21,6 +21,8 @@ import Main from './layout/Main';
 import TopNav from './layout/TopNav';
 import Content from './layout/Content';
 
+import MediaQuery from './utils/MediaQuery';
+
 import './css/normalize.css';
 import { theme } from './config/theme';
 
@@ -62,15 +64,17 @@ const Layout = ({ children }) => {
     <Fragment>
       <StateProvider initialState={initialState} reducer={reducer}>
         <ThemeProvider theme={theme}>
-          <GlobalStyles>
-            <LayoutStyles>
-              <Sidebar />
-              <Main>
-                <TopNav />
-                <Content>{children}</Content>
-              </Main>
-            </LayoutStyles>
-          </GlobalStyles>
+          <MediaQuery>
+            <GlobalStyles>
+              <LayoutStyles>
+                <Sidebar />
+                <Main>
+                  <TopNav />
+                  <Content>{children}</Content>
+                </Main>
+              </LayoutStyles>
+            </GlobalStyles>
+          </MediaQuery>
         </ThemeProvider>
       </StateProvider>
     </Fragment>
