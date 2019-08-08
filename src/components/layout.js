@@ -16,7 +16,7 @@ import { reducer } from './reducers';
 
 import GlobalStyles from './GlobalStyles';
 
-import Sidebar from './layout/Sidebar';
+import Intro from './layout/Intro';
 import Main from './layout/Main';
 import TopNav from './layout/TopNav';
 import Content from './layout/Content';
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
 
   const initialState = {
     screenSize: getScreenSize(),
-    sidedrawerOpen: true,
+    introExpanded: true,
   };
 
   return (
@@ -67,7 +67,7 @@ const Layout = ({ children }) => {
           <MediaQuery>
             <GlobalStyles>
               <LayoutStyles>
-                <Sidebar />
+                <Intro />
                 <Main>
                   <TopNav />
                   <Content>{children}</Content>

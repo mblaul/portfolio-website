@@ -11,10 +11,8 @@ export function getScreenSize() {
     screenSize = sm.name;
   } else if (windowWidth <= med.size) {
     screenSize = med.name;
-  } else if (windowWidth >= lrg.size) {
+  } else if (windowWidth >= med.size) {
     screenSize = lrg.name;
-  } else {
-    screenSize = med.name;
   }
   return screenSize;
 }

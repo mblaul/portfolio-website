@@ -21,11 +21,11 @@ class Main extends Component {
   static contextType = StateContext;
 
   render() {
-    const [ { sidedrawerOpen }, setSidedrawerOpen ] = this.context;
+    const [ { introExpanded }, setIntroExpanded ] = this.context;
 
     const { children } = this.props;
 
-    return <MainStyles className={`${sidedrawerOpen ? `hidden` : ``}`}>{children}</MainStyles>;
+    return <MainStyles className={`${introExpanded ? `hidden` : ``}`}>{children}</MainStyles>;
   }
 }
 

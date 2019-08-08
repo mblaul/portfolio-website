@@ -1,9 +1,9 @@
 export const reducer = (state, action) => {
   switch (action.type) {
-    case 'toggleSidedrawer':
+    case 'toggleIntro':
       return {
         ...state,
-        sidedrawerOpen: !state.sidedrawerOpen,
+        introExpanded: !state.introExpanded,
       };
     case 'setScreenSize':
       return {

@@ -97,36 +97,36 @@ const ActionShotStyles = styled.div`
 
 class ShortInfo extends Component {
   handleOpenButtonClick = () => {
-    const { setSidedrawerOpen } = this.props;
+    const { setIntroExpanded } = this.props;
 
-    setSidedrawerOpen({
-      type: 'toggleSidedrawer',
+    setIntroExpanded({
+      type: 'toggleIntro',
     });
   };
   render() {
-    const { sidedrawerOpen } = this.props;
+    const { introExpanded } = this.props;
 
     const screenSize = getScreenSize();
     const isMobile = screenSize === `extra-small` || screenSize === `small`;
-    const showDesktopVersion = sidedrawerOpen || screenSize !== `extra-small`;
+    const showDesktopVersion = introExpanded || screenSize !== `extra-small`;
 
     return (
       <ShortInfoStyles>
         <div className={`mobile-nav-container`}>
-          <span className={`name ${sidedrawerOpen ? `intro` : ``}`}>Matt Blaul</span>
-          {!sidedrawerOpen &&
+          <span className={`name ${introExpanded ? `intro` : ``}`}>Matt Blaul</span>
+          {!introExpanded &&
           isMobile && (
             <div className="button-container">
-              <Button classNames={`nav-button ${sidedrawerOpen ? `intro` : ``}`} text="\/" />
+              <Button classNames={`nav-button ${introExpanded ? `intro` : ``}`} text="\/" />
             </div>
           )}
         </div>
         {showDesktopVersion && <ActionShotStyles />}
-        <div className={`short-description ${sidedrawerOpen ? `intro` : ``}`}>
+        <div className={`short-description ${introExpanded ? `intro` : ``}`}>
           Web Developer, Cat Fanatic, Michigander
         </div>
 
-        {sidedrawerOpen && (
+        {introExpanded && (
           <Button classNames="see-more" onClick={this.handleOpenButtonClick}>
             See More
           </Button>
@@ -138,10 +138,10 @@ class ShortInfo extends Component {
 
 ShortInfo.propTypes = {
   // State of the sidedrawer
-  sidedrawerOpen: PropTypes.bool,
+  introExpanded: PropTypes.bool,
 
   // Dispatch function to update sidedrawer state
-  setSidedrawerOpen: PropTypes.func,
+  setIntroExpanded: PropTypes.func,
 };
 
 export default ShortInfo;
