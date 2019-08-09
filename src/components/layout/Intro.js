@@ -38,14 +38,19 @@ const IntroContainerStyles = styled.div`@media (min-width: ${mediaQueryBreakpoin
 class Intro extends Component {
   state = {
     scrollEvents: [ `mousewheel`, `scroll`, `touchmove` ],
-    scrollListenersActive: true,
+    scrollListenersActive: null,
   };
 
   static contextType = StateContext;
 
   componentDidMount() {
     const { scrollEvents } = this.state;
-    scrollEvents.forEach((scrollEvent) => window.addEventListener(scrollEvent, this.shrinkIntroOnScroll));
+    const [ { introExpanded }, dispatch ] = this.context;
+
+    if (introExpanded) {
+      scrollEvents.forEach((scrollEvent) => window.addEventListener(scrollEvent, this.shrinkIntroOnScroll));
+      this.setState({ scrollListenersActive: true });
+    }
   }
 
   componentDidUpdate() {
@@ -54,6 +59,7 @@ class Intro extends Component {
 
     if (!introExpanded && scrollListenersActive) {
       scrollEvents.forEach((scrollEvent) => window.removeEventListener(scrollEvent, this.shrinkIntroOnScroll));
+      localStorage.setItem(`introExpanded`, false);
       this.setState({ scrollListenersActive: false });
     }
   }
@@ -62,7 +68,7 @@ class Intro extends Component {
     const [ state, dispatch ] = this.context;
 
     dispatch({
-      type: 'toggleIntro',
+      type: 'toggleIntroExpanded',
     });
   };
 

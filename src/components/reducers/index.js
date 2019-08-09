@@ -1,6 +1,6 @@
 export const reducer = (state, action) => {
   switch (action.type) {
-    case 'toggleIntro':
+    case 'toggleIntroExpanded':
       return {
         ...state,
         introExpanded: !state.introExpanded,

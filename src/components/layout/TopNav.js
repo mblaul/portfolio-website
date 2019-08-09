@@ -21,11 +21,13 @@ const TopNav = (props) => {
     { to: `/contact`, name: `Contact` },
     { to: `/random`, name: `Random` },
   ];
+
   const [ { screenSize } ] = useStateValue();
 
-  console.log(screenSize);
+  const isMobile = [ `extra-small`, `small` ].includes(screenSize);
+
   return (
-    <TopNavStyles>
+    <TopNavStyles className={isMobile ? 'mobile' : ''}>
       <ul>{links.map((link) => <TopNavLink key={link.name} link={link} />)}</ul>
     </TopNavStyles>
   );

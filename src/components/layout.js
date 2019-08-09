@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
 
   const initialState = {
     screenSize: getScreenSize(),
-    introExpanded: true,
+    introExpanded: localStorage.getItem(`introExpanded`) ? JSON.parse(localStorage.getItem(`introExpanded`)) : true,
   };
 
   return (

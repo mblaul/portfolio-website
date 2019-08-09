@@ -100,7 +100,7 @@ class ShortInfo extends Component {
     const { dispatch } = this.props;
 
     dispatch({
-      type: 'toggleIntro',
+      type: 'toggleIntroExpanded',
     });
   };
 
