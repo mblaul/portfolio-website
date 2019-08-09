@@ -97,16 +97,16 @@ const ActionShotStyles = styled.div`
 
 class ShortInfo extends Component {
   handleOpenButtonClick = () => {
-    const { setIntroExpanded } = this.props;
+    const { dispatch } = this.props;
 
-    setIntroExpanded({
+    dispatch({
       type: 'toggleIntro',
     });
   };
-  render() {
-    const { introExpanded } = this.props;
 
-    const screenSize = getScreenSize();
+  render() {
+    const { introExpanded, screenSize } = this.props;
+
     const isMobile = screenSize === `extra-small` || screenSize === `small`;
     const showDesktopVersion = introExpanded || screenSize !== `extra-small`;
 
@@ -140,8 +140,11 @@ ShortInfo.propTypes = {
   // State of the sidedrawer
   introExpanded: PropTypes.bool,
 
+  // Current screen size of the app
+  screenSize: PropTypes.string,
+
   // Dispatch function to update sidedrawer state
-  setIntroExpanded: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 export default ShortInfo;

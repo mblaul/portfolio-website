@@ -36,33 +36,43 @@ const IntroStyles = styled.div`
 const IntroContainerStyles = styled.div`@media (min-width: ${mediaQueryBreakpoints.med.px}) {padding: 1em;}`;
 
 class Intro extends Component {
+  state = {
+    scrollEvents: [ `mousewheel`, `scroll`, `touchmove` ],
+    scrollListenersActive: true,
+  };
+
   static contextType = StateContext;
 
   componentDidMount() {
-    window.addEventListener('mousewheel', this.shrinkIntroOnScroll);
-    window.addEventListener('scroll', this.shrinkIntroOnScroll);
-    window.addEventListener('touchmove', this.shrinkIntroOnScroll);
+    const { scrollEvents } = this.state;
+    scrollEvents.forEach((scrollEvent) => window.addEventListener(scrollEvent, this.shrinkIntroOnScroll));
+  }
+
+  componentDidUpdate() {
+    const { scrollEvents, scrollListenersActive } = this.state;
+    const [ { introExpanded }, dispatch ] = this.context;
+
+    if (!introExpanded && scrollListenersActive) {
+      scrollEvents.forEach((scrollEvent) => window.removeEventListener(scrollEvent, this.shrinkIntroOnScroll));
+      this.setState({ scrollListenersActive: false });
+    }
   }
 
   shrinkIntroOnScroll = () => {
-    const [ { introExpanded }, setIntroExpanded ] = this.context;
+    const [ state, dispatch ] = this.context;
 
-    setIntroExpanded({
+    dispatch({
       type: 'toggleIntro',
     });
-
-    window.removeEventListener('mousewheel', this.shrinkIntroOnScroll);
-    window.removeEventListener('scroll', this.shrinkIntroOnScroll);
-    window.removeEventListener('touchmove', this.shrinkIntroOnScroll);
   };
 
   render() {
-    const [ { introExpanded }, setIntroExpanded ] = this.context;
+    const [ { introExpanded, screenSize }, dispatch ] = this.context;
 
     return (
       <IntroStyles className={introExpanded ? '' : 'shrink'}>
         <IntroContainerStyles>
-          <ShortInfo introExpanded={introExpanded} setIntroExpanded={setIntroExpanded} />
+          <ShortInfo introExpanded={introExpanded} dispatch={dispatch} screenSize={screenSize} />
         </IntroContainerStyles>
       </IntroStyles>
     );

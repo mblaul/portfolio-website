@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { useStateValue } from '../state/index';
 import TopNavLink from '../TopNavLink';
 
 const TopNavStyles = styled.nav`
@@ -21,7 +21,9 @@ const TopNav = (props) => {
     { to: `/contact`, name: `Contact` },
     { to: `/random`, name: `Random` },
   ];
+  const [ { screenSize } ] = useStateValue();
 
+  console.log(screenSize);
   return (
     <TopNavStyles>
       <ul>{links.map((link) => <TopNavLink key={link.name} link={link} />)}</ul>

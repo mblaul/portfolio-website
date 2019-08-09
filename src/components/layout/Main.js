@@ -21,7 +21,7 @@ class Main extends Component {
   static contextType = StateContext;
 
   render() {
-    const [ { introExpanded }, setIntroExpanded ] = this.context;
+    const [ { introExpanded }, dispatch ] = this.context;
 
     const { children } = this.props;
 
