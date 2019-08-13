@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { mediaQueryBreakpoints } from './config/constants';
-import { getScreenSize } from './utils/screenSizeHelper';
 
 import Button from './common/Button';
 
@@ -100,7 +99,15 @@ class ShortInfo extends Component {
     const { dispatch } = this.props;
 
     dispatch({
-      type: 'toggleIntroExpanded',
+      type: `toggleIntroExpanded`,
+    });
+  };
+
+  handleNavButtonClick = () => {
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: `toggleMobileNavExpanded`,
     });
   };
 
@@ -117,7 +124,11 @@ class ShortInfo extends Component {
           {!introExpanded &&
           isMobile && (
             <div className="button-container">
-              <Button classNames={`nav-button ${introExpanded ? `intro` : ``}`} text="\/" />
+              <Button
+                classNames={`nav-button ${introExpanded ? `intro` : ``}`}
+                onClick={this.handleNavButtonClick}
+                text="\/"
+              />
             </div>
           )}
         </div>
@@ -137,13 +148,13 @@ class ShortInfo extends Component {
 }
 
 ShortInfo.propTypes = {
-  // State of the sidedrawer
+  // State of the intro
   introExpanded: PropTypes.bool,
 
   // Current screen size of the app
   screenSize: PropTypes.string,
 
-  // Dispatch function to update sidedrawer state
+  // Dispatch function to update global state
   dispatch: PropTypes.func,
 };
 

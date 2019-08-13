@@ -5,6 +5,11 @@ export const reducer = (state, action) => {
         ...state,
         introExpanded: !state.introExpanded,
       };
+    case 'toggleMobileNavExpanded':
+      return {
+        ...state,
+        mobileNavExpanded: !state.mobileNavExpanded,
+      };
     case 'setScreenSize':
       return {
         ...state,

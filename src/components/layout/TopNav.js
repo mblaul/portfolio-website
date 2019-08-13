@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { useStateValue } from '../state/index';
 import TopNavLink from '../TopNavLink';
@@ -11,6 +11,16 @@ const TopNavStyles = styled.nav`
     padding: 2vw 15vw 0 2vw;
     list-style-type: none;
   }
+  &.mobile {
+    position: fixed;
+    ul {
+      grid-template-columns: unset;
+      grid-template-rows: repeat(5, 1fr);
+      width: 100vw;
+      padding: 0;
+      margin: 0;
+    }
+  }
 `;
 
 const TopNav = (props) => {
@@ -22,14 +32,23 @@ const TopNav = (props) => {
     { to: `/random`, name: `Random` },
   ];
 
-  const [ { screenSize } ] = useStateValue();
+  const [ { mobileNavExpanded, screenSize } ] = useStateValue();
 
   const isMobile = [ `extra-small`, `small` ].includes(screenSize);
+  let shouldShowNavBar = true;
+
+  if (isMobile) {
+    shouldShowNavBar = mobileNavExpanded;
+  }
 
   return (
-    <TopNavStyles className={isMobile ? 'mobile' : ''}>
-      <ul>{links.map((link) => <TopNavLink key={link.name} link={link} />)}</ul>
-    </TopNavStyles>
+    <Fragment>
+      {shouldShowNavBar && (
+        <TopNavStyles className={isMobile ? 'mobile' : ''}>
+          <ul>{links.map((link) => <TopNavLink key={link.name} isMobile={isMobile} link={link} />)}</ul>
+        </TopNavStyles>
+      )}
+    </Fragment>
   );
 };
 

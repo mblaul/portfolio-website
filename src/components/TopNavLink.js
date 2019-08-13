@@ -16,7 +16,6 @@ const LinkStyles = styled.li`
     font: 900 1.3em Muli, sans-serif;
     color: white;
     text-decoration: none;
-
     &:visited {
       color: white;
     }
@@ -35,17 +34,25 @@ const LinkStyles = styled.li`
       }
     }
   }
+
+  &.mobile {
+    background-color: ${(props) => props.theme.color.grey.dark};
+    border: unset;
+    border-bottom: 2px solid ${(props) => props.theme.color.main};
+  }
 `;
 
-const TopNavLink = ({ link }) => {
+const TopNavLink = ({ isMobile, link }) => {
   return (
-    <LinkStyles>
+    <LinkStyles className={isMobile ? `mobile` : ``}>
       <Link to={link.to}>{link.name}</Link>
     </LinkStyles>
   );
 };
 
 TopNavLink.propTypes = {
+  isMobile: PropTypes.bool,
+
   link: PropTypes.object,
 };
 
