@@ -73,12 +73,17 @@ class Intro extends Component {
   };
 
   render() {
-    const [ { introExpanded, screenSize }, dispatch ] = this.context;
+    const [ { introExpanded, mobileNavExpanded, screenSize }, dispatch ] = this.context;
 
     return (
       <IntroStyles className={introExpanded ? '' : 'shrink'}>
         <IntroContainerStyles>
-          <ShortInfo introExpanded={introExpanded} dispatch={dispatch} screenSize={screenSize} />
+          <ShortInfo
+            introExpanded={introExpanded}
+            dispatch={dispatch}
+            mobileNavExpanded={mobileNavExpanded}
+            screenSize={screenSize}
+          />
         </IntroContainerStyles>
       </IntroStyles>
     );

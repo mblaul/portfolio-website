@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { mediaQueryBreakpoints } from './config/constants';
 
 import Button from './common/Button';
+import SVG from './common/SVG';
 
 const ShortInfoStyles = styled.div`
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
@@ -57,6 +58,9 @@ const ShortInfoStyles = styled.div`
         height: 50px;
         &.intro {
           display: none;
+        }
+        &.nav-expanded {
+          background-color: ${(props) => props.theme.color.main};
         }
       }
     }
@@ -112,9 +116,9 @@ class ShortInfo extends Component {
   };
 
   render() {
-    const { introExpanded, screenSize } = this.props;
+    const { introExpanded, mobileNavExpanded, screenSize } = this.props;
 
-    const isMobile = screenSize === `extra-small` || screenSize === `small`;
+    const isMobile = [ `extra-small`, `small` ].includes(screenSize);
     const showDesktopVersion = introExpanded || screenSize !== `extra-small`;
 
     return (
@@ -125,10 +129,15 @@ class ShortInfo extends Component {
           isMobile && (
             <div className="button-container">
               <Button
-                classNames={`nav-button ${introExpanded ? `intro` : ``}`}
+                classNames={`
+                  nav-button 
+                  ${introExpanded ? `intro` : ``}
+                  ${mobileNavExpanded ? `nav-expanded` : ``}
+                `}
                 onClick={this.handleNavButtonClick}
-                text="\/"
-              />
+              >
+                <SVG name="menu-icon" />
+              </Button>
             </div>
           )}
         </div>
@@ -150,6 +159,9 @@ class ShortInfo extends Component {
 ShortInfo.propTypes = {
   // State of the intro
   introExpanded: PropTypes.bool,
+
+  // State of the mobile nav
+  mobileNavExpanded: PropTypes.bool,
 
   // Current screen size of the app
   screenSize: PropTypes.string,
