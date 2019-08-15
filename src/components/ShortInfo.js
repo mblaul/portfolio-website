@@ -116,9 +116,8 @@ class ShortInfo extends Component {
   };
 
   render() {
-    const { introExpanded, mobileNavExpanded, screenSize } = this.props;
+    const { introExpanded, isMobile, mobileNavExpanded, screenSize } = this.props;
 
-    const isMobile = [ `extra-small`, `small` ].includes(screenSize);
     const showDesktopVersion = introExpanded || screenSize !== `extra-small`;
 
     return (

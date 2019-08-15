@@ -32,9 +32,7 @@ const TopNav = (props) => {
     { to: `/random`, name: `Random` },
   ];
 
-  const [ { mobileNavExpanded, screenSize } ] = useStateValue();
-
-  const isMobile = [ `extra-small`, `small` ].includes(screenSize);
+  const [ { isMobile, mobileNavExpanded } ] = useStateValue();
   let shouldShowNavBar = true;
 
   if (isMobile) {

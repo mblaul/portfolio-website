@@ -55,10 +55,15 @@ const Layout = ({ children }) => {
     }
   `);
 
+  const initialScreenSize = getScreenSize();
+  const { xs, sm, med } = mediaQueryBreakpoints;
+  const isMobile = [ xs.name, sm.name, med.name ].includes(initialScreenSize);
+
   const initialState = {
     introExpanded: localStorage.getItem(`introExpanded`) ? JSON.parse(localStorage.getItem(`introExpanded`)) : true,
     mobileNavExpanded: false,
-    screenSize: getScreenSize(),
+    screenSize: initialScreenSize,
+    isMobile,
   };
 
   return (

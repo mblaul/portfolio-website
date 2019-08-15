@@ -15,6 +15,11 @@ export const reducer = (state, action) => {
         ...state,
         screenSize: action.screenSize,
       };
+    case 'setIsMobile':
+      return {
+        ...state,
+        isMobile: action.isMobile,
+      };
     default:
       return state;
   }

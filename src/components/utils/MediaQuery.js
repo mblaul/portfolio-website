@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { StateContext } from '../state';
 
 import { getScreenSize } from './screenSizeHelper';
+import { mediaQueryBreakpoints } from '../config/constants';
 
 class MediaQuery extends Component {
   state = {
@@ -13,21 +14,28 @@ class MediaQuery extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.adjustAppSize);
-    const [ { screenSize }, setScreenSize ] = this.context;
+    const [ { screenSize } ] = this.context;
 
     this.setState({ screenSize });
   }
 
   adjustAppSize = () => {
-    const [ { screenSize }, setScreenSize ] = this.context;
+    const [ { isMobile, screenSize }, dispatch ] = this.context;
+
     const currentScreenSize = getScreenSize();
 
     if (currentScreenSize !== screenSize) {
-      setScreenSize({
+      dispatch({
         type: 'setScreenSize',
         screenSize: currentScreenSize,
       });
+      dispatch({
+        type: 'setIsMobile',
+        isMobile,
+      });
+
       console.log(currentScreenSize);
+      console.log(`is mobile? ${isMobile}`);
     }
   };
 
