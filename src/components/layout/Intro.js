@@ -29,6 +29,7 @@ const IntroStyles = styled.div`
     }
     @media (min-width: ${mediaQueryBreakpoints.med.px}) {
       flex-basis: 20vw;
+      min-width: 350px;
     }
   }
 `;
@@ -73,13 +74,14 @@ class Intro extends Component {
   };
 
   render() {
-    const [ { introExpanded, mobileNavExpanded, screenSize }, dispatch ] = this.context;
+    const [ { introExpanded, isMobile, mobileNavExpanded, screenSize }, dispatch ] = this.context;
 
     return (
       <IntroStyles className={introExpanded ? '' : 'shrink'}>
         <IntroContainerStyles>
           <ShortInfo
             introExpanded={introExpanded}
+            isMobile={isMobile}
             dispatch={dispatch}
             mobileNavExpanded={mobileNavExpanded}
             screenSize={screenSize}

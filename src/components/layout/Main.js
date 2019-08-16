@@ -15,13 +15,14 @@ const MainStyles = styled.div`
 
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
     padding-top: 10vh;
+    height: 90vh;
   }
 `;
 class Main extends Component {
   static contextType = StateContext;
 
   render() {
-    const [ { introExpanded }, dispatch ] = this.context;
+    const [ { introExpanded } ] = this.context;
 
     const { children } = this.props;
 
