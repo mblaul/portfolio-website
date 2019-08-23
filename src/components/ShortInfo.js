@@ -6,6 +6,7 @@ import { mediaQueryBreakpoints } from './config/constants';
 
 import Button from './common/Button';
 import SVG from './common/SVG';
+import { Link } from 'gatsby';
 
 const ShortInfoStyles = styled.div`
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
@@ -79,9 +80,18 @@ const ShortInfoStyles = styled.div`
       display: none;
     }
     @media (min-width: ${mediaQueryBreakpoints.med.px}) {
-      padding-top: 1em;
+      padding-top: 1.5em;
       text-align: center;
       margin: auto;
+    }
+  }
+
+  .social-media-links {
+    padding-top: 1.75em;
+    margin: auto;
+    text-align: center;
+    svg {
+      padding: 0 0.5em;
     }
   }
 
@@ -118,7 +128,7 @@ class ShortInfo extends Component {
   render() {
     const { introExpanded, isMobile, mobileNavExpanded, screenSize } = this.props;
 
-    const showDesktopVersion = introExpanded || screenSize !== `extra-small`;
+    const showDesktopVersion = !isMobile;
 
     return (
       <ShortInfoStyles>
@@ -144,6 +154,17 @@ class ShortInfo extends Component {
         <div className={`short-description ${introExpanded ? `intro` : ``}`}>
           Web Developer, Cat Fanatic, Michigander
         </div>
+        {showDesktopVersion &&
+        !introExpanded && (
+          <div className={`social-media-links`}>
+            <a href="https://www.github.com/mblaul">
+              <SVG name="github-icon" width={36} height={36} viewBox={`0 0 512 512`} />
+            </a>
+            <a href="https://www.linkedin.com/in/mblaul">
+              <SVG name="linkedin-icon" width={36} height={36} viewBox={`0 0 512 512`} />
+            </a>
+          </div>
+        )}
 
         {introExpanded && (
           <Button classNames="see-more" onClick={this.handleOpenButtonClick}>
