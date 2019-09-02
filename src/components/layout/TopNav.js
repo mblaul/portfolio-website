@@ -8,7 +8,7 @@ const TopNavStyles = styled.nav`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 1em;
-    padding: 2vw 15vw 0 2vw;
+    padding: 2vw 4vw 0 4vw;
     list-style-type: none;
   }
   &.mobile {

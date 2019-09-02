@@ -6,7 +6,6 @@ import { mediaQueryBreakpoints } from './config/constants';
 
 import Button from './common/Button';
 import SVG from './common/SVG';
-import { Link } from 'gatsby';
 
 const ShortInfoStyles = styled.div`
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {

@@ -30,8 +30,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: 'portfolio-website',
-        dataset: 'portfolio-website',
+        projectId: 'bco1wtiz',
+        dataset: 'production',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
