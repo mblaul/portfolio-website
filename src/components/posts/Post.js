@@ -16,23 +16,16 @@ const PostStyles = styled.article`
 
 const PostHeader = styled.div`
   margin-bottom: 1.5em;
-  padding: 0.5em 10em 0.5em 1em;
-  background-color: ${(props) => props.theme.color.main};
-  /* background-image: linear-gradient(
-    90deg,
-    ${(props) => props.theme.color.main} 60%,
-    ${(props) => props.theme.color.electricPink}
-  ); */
+  padding: 0.5em 10em 0.5em 0em;
   box-shadow: 0px 3px 0px 0px ${(props) => props.theme.color.electricPink};
   max-width: max-content;
 
   h1 {
     font-size: 2.4em;
     margin: 0 0 0.2em 0;
-    text-shadow: ${(props) => props.theme.color.accentSecondary} 0px 1px 0px,
-      ${(props) => props.theme.color.accentSecondary} 1px 2px 0px,
-      ${(props) => props.theme.color.accentSecondary} 2px 3px 0px,
-      ${(props) => props.theme.color.accentSecondary} 3px 4px 0px;
+    text-shadow: ${(props) => props.theme.color.accent} -1px 0px 0px, ${(props) => props.theme.color.accent} 0px 1px 0px,
+      ${(props) => props.theme.color.accent} 1px 2px 0px, ${(props) => props.theme.color.accent} 2px 3px 0px,
+      ${(props) => props.theme.color.accent} 3px 4px 0px;
   }
   .post-time {
     text-shadow: ${(props) => props.theme.color.accentSecondary} 0px 0px 1px;
