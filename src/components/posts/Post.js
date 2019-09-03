@@ -8,7 +8,7 @@ const PostStyles = styled.article`
   margin-bottom: 3em;
 
   section {
-    padding-left: 0.6em;
+    padding: 0em 0em 0.8em 0.6em;
     border-left: 1px solid ${(props) => props.theme.color.electricPink};
     font-size: 1.2em;
   }
