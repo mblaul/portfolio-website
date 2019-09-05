@@ -6,6 +6,7 @@ import { mediaQueryBreakpoints } from './config/constants';
 
 import Button from './common/Button';
 import SVG from './common/SVG';
+import Image from './image';
 
 const ShortInfoStyles = styled.div`
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
@@ -100,12 +101,7 @@ const ShortInfoStyles = styled.div`
   }
 `;
 
-const ActionShotStyles = styled.div`
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 3px;
-  height: 300px;
-  width: 100%;
-`;
+const ActionShotStyles = styled.div`box-shadow: 0px 0px 15px 0px ${(props) => props.theme.color.grey.dark};`;
 
 class ShortInfo extends Component {
   handleOpenButtonClick = () => {
@@ -149,7 +145,11 @@ class ShortInfo extends Component {
             </div>
           )}
         </div>
-        {showDesktopVersion && <ActionShotStyles />}
+        {showDesktopVersion && (
+          <ActionShotStyles>
+            <Image />
+          </ActionShotStyles>
+        )}
         <div className={`short-description ${introExpanded ? `intro` : ``}`}>
           Web Developer, Cat Fanatic, Michigander
         </div>
