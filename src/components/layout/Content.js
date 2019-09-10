@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContentStyles = styled.div`
-  margin-top: 1em;
-  padding: 2vw 4vw 2vw 4vw;
+  margin-top: 0.5em;
+  padding: 0.5vw 4vw 2vw 4vw;
 `;
 
 const Content = ({ children }) => {

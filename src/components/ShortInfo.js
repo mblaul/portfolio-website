@@ -92,6 +92,9 @@ const ShortInfoStyles = styled.div`
     text-align: center;
     svg {
       padding: 0 0.5em;
+      &:hover {
+        fill: ${(props) => props.theme.color.electricPink};
+      }
     }
   }
 
@@ -101,7 +104,10 @@ const ShortInfoStyles = styled.div`
   }
 `;
 
-const ActionShotStyles = styled.div`box-shadow: 0px 0px 15px 0px ${(props) => props.theme.color.grey.dark};`;
+const ActionShotStyles = styled.div`
+  border: 2px solid ${(props) => props.theme.color.main};
+  box-shadow: 0px 0px 15px 0px ${(props) => props.theme.color.grey.dark};
+`;
 
 class ShortInfo extends Component {
   handleOpenButtonClick = () => {
