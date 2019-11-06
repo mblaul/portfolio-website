@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Styles = styled.div`
   /* Font imports */
-  @import url('https://fonts.googleapis.com/css?family=Muli:300,400,900,900i|Galada&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900,900i');
 
   /* Global base styles */
   font-family: 'Muli', sans-serif;

@@ -8,7 +8,6 @@ import PageHeader from '../components/PageHeader';
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <PageHeader title="Blog Posts" />
     <PostsContainer />
   </Layout>
 );

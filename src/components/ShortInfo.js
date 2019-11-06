@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import { mediaQueryBreakpoints } from './config/constants';
 
 import Button from './common/Button';
 import SVG from './common/SVG';
-import Image from './image';
+import MeImage from './image';
 
 const ShortInfoStyles = styled.div`
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
     padding: 0;
   }
   @media (min-width: ${mediaQueryBreakpoints.med.px}) {
-    padding: 1.5em 1em;
-    padding-bottom: 2em;
+    padding: 1.5em 1em 2em 1em;
     border-bottom: 3px solid ${(props) => props.theme.color.main};
+    &.intro {
+      padding: 0;
+    }
   }
 
   .mobile-nav-container {
@@ -24,15 +27,15 @@ const ShortInfoStyles = styled.div`
     align-items: baseline;
     padding: 0.6em;
     .name {
-      font: 400 3vw 'Galada', cursive;
-      letter-spacing: 1px;
+      font: 900 2.8vw Muli, sans-serif;
+      letter-spacing: 0px;
       text-shadow: -1px -1px 0 ${(props) => props.theme.color.accent}, 1px -1px 0 ${(props) => props.theme.color.accent},
         -1px 1px 0 ${(props) => props.theme.color.accent}, 1px 1px 0 ${(props) => props.theme.color.accent},
         2px 2px 1px ${(props) => props.theme.color.main}, 3px 3px 1px ${(props) => props.theme.color.main};
       transition: all ease 1s;
 
       &.intro {
-        font-size: 10vw;
+        font-size: 7.5vw;
       }
 
       @media (max-width: ${mediaQueryBreakpoints.med.px}) {
@@ -72,7 +75,7 @@ const ShortInfoStyles = styled.div`
 
     transition: all ease 1s;
     &.intro {
-      font-size: 2vw;
+      font-size: 1.5vw;
     }
 
     @media (max-width: ${mediaQueryBreakpoints.med.px}) {
@@ -107,6 +110,9 @@ const ShortInfoStyles = styled.div`
 const ActionShotStyles = styled.div`
   border: 2px solid ${(props) => props.theme.color.main};
   box-shadow: 0px 0px 15px 0px ${(props) => props.theme.color.grey.dark};
+  max-height: 25vw;
+  max-width: 25vw;
+  margin: auto;
 `;
 
 class ShortInfo extends Component {
@@ -132,7 +138,7 @@ class ShortInfo extends Component {
     const showDesktopVersion = !isMobile;
 
     return (
-      <ShortInfoStyles>
+      <ShortInfoStyles className={`${introExpanded ? `intro` : ``}`}>
         <div className={`mobile-nav-container`}>
           <span className={`name ${introExpanded ? `intro` : ``}`}>Matt Blaul</span>
           {!introExpanded &&
@@ -153,7 +159,7 @@ class ShortInfo extends Component {
         </div>
         {showDesktopVersion && (
           <ActionShotStyles>
-            <Image />
+            <MeImage />
           </ActionShotStyles>
         )}
         <div className={`short-description ${introExpanded ? `intro` : ``}`}>

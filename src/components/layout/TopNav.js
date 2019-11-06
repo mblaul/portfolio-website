@@ -6,7 +6,7 @@ import TopNavLink from '../TopNavLink';
 const TopNavStyles = styled.nav`
   ul {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(${(props) => props.linkCount}, 1fr);
     grid-column-gap: 1em;
     padding: 2vw 4vw 0 4vw;
     list-style-type: none;
@@ -15,7 +15,7 @@ const TopNavStyles = styled.nav`
     position: fixed;
     ul {
       grid-template-columns: unset;
-      grid-template-rows: repeat(5, 1fr);
+      grid-template-rows: repeat(${(props) => props.linkCount}, 1fr);
       width: 100vw;
       padding: 0;
       margin: 0;
@@ -27,9 +27,8 @@ const TopNav = (props) => {
   const links = [
     { to: `/`, name: `Home` },
     { to: `/about`, name: `About` },
-    { to: `/why-me`, name: `Why Me` },
+    { to: `/projects`, name: `Projects` },
     { to: `/contact`, name: `Contact` },
-    { to: `/random`, name: `Random` },
   ];
 
   const [ { isMobile, mobileNavExpanded } ] = useStateValue();
@@ -42,7 +41,7 @@ const TopNav = (props) => {
   return (
     <Fragment>
       {shouldShowNavBar && (
-        <TopNavStyles className={isMobile ? 'mobile' : ''}>
+        <TopNavStyles className={isMobile ? 'mobile' : ''} linkCount={links.length}>
           <ul>{links.map((link) => <TopNavLink key={link.name} isMobile={isMobile} link={link} />)}</ul>
         </TopNavStyles>
       )}
