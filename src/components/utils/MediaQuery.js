@@ -31,9 +31,6 @@ class MediaQuery extends Component {
         type: 'setIsMobile',
         isMobile,
       });
-
-      console.log(currentScreenSize);
-      console.log(`is mobile? ${isMobile}`);
     }
   };
 

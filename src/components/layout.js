@@ -44,7 +44,7 @@ const LayoutStyles = styled.div`
   }
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pageProps }) => {
   const { site: { siteMetadata: { title } } } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -64,6 +64,7 @@ const Layout = ({ children }) => {
     mobileNavExpanded: false,
     screenSize: initialScreenSize,
     isMobile,
+    pageProps,
   };
 
   return (

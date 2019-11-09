@@ -3,10 +3,9 @@ import PostsContainer from '../components/posts/PostsContainer';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import PageHeader from '../components/PageHeader';
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = (props) => (
+  <Layout pageProps={props}>
     <SEO title="Home" />
     <PostsContainer />
   </Layout>

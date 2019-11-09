@@ -42,7 +42,16 @@ const TopNav = (props) => {
     <Fragment>
       {shouldShowNavBar && (
         <TopNavStyles className={isMobile ? 'mobile' : ''} linkCount={links.length}>
-          <ul>{links.map((link) => <TopNavLink key={link.name} isMobile={isMobile} link={link} />)}</ul>
+          <ul>
+            {links.map((link) => (
+              <TopNavLink
+                key={link.name}
+                isActive={window.location.pathname === link.to}
+                isMobile={isMobile}
+                link={link}
+              />
+            ))}
+          </ul>
         </TopNavStyles>
       )}
     </Fragment>

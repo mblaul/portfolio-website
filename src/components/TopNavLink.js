@@ -22,7 +22,8 @@ const LinkStyles = styled.li`
 
     &:hover,
     &:active,
-    &:focus {
+    &:focus,
+    &.active {
       color: white;
       background-image: linear-gradient(
         -15deg,
@@ -42,10 +43,12 @@ const LinkStyles = styled.li`
   }
 `;
 
-const TopNavLink = ({ isMobile, link }) => {
+const TopNavLink = ({ isActive, isMobile, link }) => {
   return (
     <LinkStyles className={isMobile ? `mobile` : ``}>
-      <Link to={link.to}>{link.name}</Link>
+      <Link to={link.to} className={isActive ? `active` : ``}>
+        {link.name}
+      </Link>
     </LinkStyles>
   );
 };
