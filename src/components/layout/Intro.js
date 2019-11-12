@@ -47,7 +47,7 @@ class Intro extends Component {
 
   componentDidMount() {
     const { scrollEvents } = this.state;
-    const [ { introExpanded }, dispatch ] = this.context;
+    const [ { introExpanded } ] = this.context;
 
     if (introExpanded) {
       scrollEvents.forEach((scrollEvent) => window.addEventListener(scrollEvent, this.shrinkIntroOnScroll));
@@ -57,7 +57,7 @@ class Intro extends Component {
 
   componentDidUpdate() {
     const { scrollEvents, scrollListenersActive } = this.state;
-    const [ { introExpanded }, dispatch ] = this.context;
+    const [ { introExpanded } ] = this.context;
 
     if (!introExpanded && scrollListenersActive) {
       scrollEvents.forEach((scrollEvent) => window.removeEventListener(scrollEvent, this.shrinkIntroOnScroll));

@@ -26,7 +26,7 @@ const TopNavStyles = styled.nav`
 const TopNav = (props) => {
   const links = [
     { to: `/`, name: `Home` },
-    { to: `/about`, name: `About` },
+    { to: `/posts`, name: `Posts` },
     { to: `/projects`, name: `Projects` },
     { to: `/contact`, name: `Contact` },
   ];

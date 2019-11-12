@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import { mediaQueryBreakpoints } from './config/constants';
@@ -90,8 +89,10 @@ const ShortInfoStyles = styled.div`
   }
 
   .social-media-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 1.75em;
-    margin: auto;
     text-align: center;
     svg {
       padding: 0 0.5em;
@@ -133,7 +134,7 @@ class ShortInfo extends Component {
   };
 
   render() {
-    const { introExpanded, isMobile, mobileNavExpanded, screenSize } = this.props;
+    const { introExpanded, isMobile, mobileNavExpanded } = this.props;
 
     const showDesktopVersion = !isMobile;
 
@@ -173,6 +174,9 @@ class ShortInfo extends Component {
             </a>
             <a href="https://www.linkedin.com/in/mblaul">
               <SVG name="linkedin-icon" width={36} height={36} viewBox={`0 0 512 512`} />
+            </a>
+            <a href="https://dev.to/mblaul">
+              <SVG name="dev-to-icon" width={52} height={52} viewBox={`0 0 32 32`} />
             </a>
           </div>
         )}

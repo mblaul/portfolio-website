@@ -7,7 +7,6 @@
 
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -44,17 +43,7 @@ const LayoutStyles = styled.div`
   }
 `;
 
-const Layout = ({ children, pageProps }) => {
-  const { site: { siteMetadata: { title } } } = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
+const Layout = ({ children }) => {
   const initialScreenSize = getScreenSize();
   const { xs, sm, med } = mediaQueryBreakpoints;
   const isMobile = [ xs.name, sm.name, med.name ].includes(initialScreenSize);
@@ -64,7 +53,6 @@ const Layout = ({ children, pageProps }) => {
     mobileNavExpanded: false,
     screenSize: initialScreenSize,
     isMobile,
-    pageProps,
   };
 
   return (
