@@ -23,7 +23,7 @@ const IndexPage = () => {
             <li>Ruby (on Rails)</li>
             <li>SQL</li>
           </ul>
-          I'm not limited to these and an always looking to learn something new!
+          I'm not limited to these however and am always looking to learn something new!
         </p>
       </Page>
     </Layout>
