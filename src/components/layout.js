@@ -27,6 +27,7 @@ import { theme } from './config/theme';
 
 import { mediaQueryBreakpoints } from './config/constants';
 import { getScreenSize } from './utils/screenSizeHelper';
+import { isSiteBuilt } from './utils/buildHelper';
 
 const LayoutStyles = styled.div`
   max-width: 100vw;
@@ -47,9 +48,12 @@ const Layout = ({ children }) => {
   const initialScreenSize = getScreenSize();
   const { xs, sm, med } = mediaQueryBreakpoints;
   const isMobile = [ xs.name, sm.name, med.name ].includes(initialScreenSize);
+  const introExpanded = isSiteBuilt
+    ? localStorage.getItem(`introExpanded`) ? JSON.parse(localStorage.getItem(`introExpanded`)) : true
+    : null;
 
   const initialState = {
-    introExpanded: localStorage.getItem(`introExpanded`) ? JSON.parse(localStorage.getItem(`introExpanded`)) : true,
+    introExpanded,
     mobileNavExpanded: false,
     screenSize: initialScreenSize,
     isMobile,

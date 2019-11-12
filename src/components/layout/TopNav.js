@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { useStateValue } from '../state/index';
 import TopNavLink from '../TopNavLink';
 
+import { isSiteBuilt } from '../utils/buildHelper';
+
 const TopNavStyles = styled.nav`
   ul {
     display: grid;
@@ -46,7 +48,7 @@ const TopNav = (props) => {
             {links.map((link) => (
               <TopNavLink
                 key={link.name}
-                isActive={window.location.pathname === link.to}
+                isActive={isSiteBuilt && window.location.pathname === link.to}
                 isMobile={isMobile}
                 link={link}
               />
