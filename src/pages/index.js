@@ -17,12 +17,13 @@ const IndexPage = () => {
           from Oakland University in Rochester Hills, Michigan.
         </p>
         <p>
-          I specialize in these technologies currently:
+          I currently specialize in these languages:
           <ul>
             <li>Javascript (React, NodeJS, Vanilla ES6+)</li>
             <li>Ruby (on Rails)</li>
             <li>SQL</li>
           </ul>
+          I'm not limited to these and an always looking to learn something new!
         </p>
       </Page>
     </Layout>

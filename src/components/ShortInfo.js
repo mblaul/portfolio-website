@@ -164,18 +164,18 @@ class ShortInfo extends Component {
           </ActionShotStyles>
         )}
         <div className={`short-description ${introExpanded ? `intro` : ``}`}>
-          Web Developer, Cat Fanatic, Michigander
+          Web Developer, Animal Lover, Michigander
         </div>
         {showDesktopVersion &&
         !introExpanded && (
           <div className={`social-media-links`}>
-            <a href="https://www.github.com/mblaul">
+            <a href="https://www.github.com/mblaul" target="_blank">
               <SVG name="github-icon" width={36} height={36} viewBox={`0 0 512 512`} />
             </a>
-            <a href="https://www.linkedin.com/in/mblaul">
+            <a href="https://www.linkedin.com/in/mblaul" target="_blank">
               <SVG name="linkedin-icon" width={36} height={36} viewBox={`0 0 512 512`} />
             </a>
-            <a href="https://dev.to/mblaul">
+            <a href="https://dev.to/mblaul" target="_blank">
               <SVG name="dev-to-icon" width={52} height={52} viewBox={`0 0 32 32`} />
             </a>
           </div>

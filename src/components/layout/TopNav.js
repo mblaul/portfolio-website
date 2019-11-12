@@ -27,8 +27,8 @@ const TopNav = (props) => {
   const links = [
     { to: `/`, name: `Home` },
     { to: `/posts`, name: `Posts` },
-    { to: `/projects`, name: `Projects` },
-    { to: `/contact`, name: `Contact` },
+    // { to: `/projects`, name: `Projects` },
+    // { to: `/contact`, name: `Contact` },
   ];
 
   const [ { isMobile, mobileNavExpanded } ] = useStateValue();
