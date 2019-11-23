@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 import styled from 'styled-components';
 
 const LinkStyles = styled.li`
   border: 2px solid ${(props) => props.theme.color.main};
+  border-radius: 35px;
 
   a {
     display: flex;
@@ -13,9 +14,12 @@ const LinkStyles = styled.li`
     justify-content: center;
     height: 3em;
     min-width: 100px;
+    border-radius: 35px;
+
     font: 900 1.3em Muli, sans-serif;
     color: white;
     text-decoration: none;
+    
     &:visited {
       color: white;
     }
