@@ -25,6 +25,7 @@ const Providers = ({ children }) => {
     mobileNavExpanded: false,
     screenSize: initialScreenSize,
     isMobile,
+    selectedTags: [],
   };
 
   return (

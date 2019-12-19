@@ -1,53 +1,50 @@
-import React, { Component, useState } from 'react';
-import { StateContext, useStateValue } from '../state';
+import React from 'react';
 import styled from 'styled-components';
 
-import { mediaQueryBreakpoints } from '../config/constants';
+import { mediaQueryBreakpoints, spacing } from '../config/constants';
 
 import ShortInfo from '../ShortInfo';
 
-const IntroStyles = styled.div`
+const HeaderStyles = styled.header`
+  position: relative;
+  display: grid;
+  align-items: center;
+
   background-color: ${props => props.theme.color.accent};
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='medium-lines' width='100' height='100' viewBox='0 0 100 100' patternUnits='userSpaceOnUse'%3E%3CanimateTransform attributeName='patternTransform' type='translate' from='0' to='-100 100' begin='0' dur='2.5s' repeatCount='indefinite' /%3E%3Cpath stroke='rgba(15, 82, 87, 0.75)' stroke-width='12' stroke-linecap='round' stroke-linejoin='round' d='M43.907 6.485L6.485 43.093' /%3E%3C/pattern%3E%3Cpattern id='little-lines' width='50' height='50' viewBox='0 0 100 100' patternUnits='userSpaceOnUse'%3E%3CanimateTransform attributeName='patternTransform' type='translate' from='0' to='-50 50' begin='0' dur='2.75s' repeatCount='indefinite' /%3E%3Cpath stroke='rgba(15, 82, 87, 0.25)' stroke-width='12' stroke-linecap='round' stroke-linejoin='round' d='M43.907 6.485L6.485 43.093' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' style='fill: url(%23medium-lines);' /%3E%3Crect width='100%25' height='100%25' style='fill: url(%23little-lines);' /%3E%3C/svg%3E"),
-    linear-gradient(180deg, ${props => props.theme.color.accent} 33%, ${props => props.theme.color.accentSecondary});
-
-  box-shadow: 21px 0px 30px -25px black;
-  height: 100vh;
-  z-index: 1000;
-
-  transition: all 1s ease-in-out;
-
-  &.intro-expanded {
-    flex: 0 0 100vw;
-  }
+    linear-gradient(180deg, ${props => props.theme.color.accent} 5%, ${props => props.theme.color.accentSecondary});
 
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
-    position: fixed;
-    width: 100vw;
-    height: 10vh;
+    grid-template-columns: 1 auto;
+    padding: ${spacing.vertical.inner}vh ${spacing.horizontal.inner}vw;
+    & > div { 
+      margin:${spacing.vertical.inner}vh 0;
+    }
   }
   @media (min-width: ${mediaQueryBreakpoints.med.px}) {
-    &.intro-shrink {
-      flex: 0 0 20vw;
-      min-width: 350px;
+    grid-template-columns: repeat(2, 50%);
+    padding: 4vh 13vw;
+    .description { 
+      margin: 5vh 0;
     }
+  }
   }
 `;
 
-const IntroContainerStyles = styled.div`@media (min-width: ${mediaQueryBreakpoints.med.px}) {padding: 1em;}`;
+const Header = () => {
+  return (
+    <HeaderStyles>
+      <ShortInfo />
+      <div className="description">
+        <h2>Hello, World!</h2>
+        <p>I'm a full-stack web developer from Dearborn, Michigan.</p>
+        <p>
+          I've always had a fun working on computers. That passion lead me to pursue a degree in Information Technology
+          from Oakland University in Rochester Hills, Michigan.
+        </p>
+      </div>
+    </HeaderStyles>
+  );
+};
 
-class Intro extends Component {
-  static contextType = StateContext;
-  render() {
-    const [ { introExpanded } ] = this.context;
-    return (
-      <IntroStyles className={introExpanded ? 'intro-expanded' : 'intro-shrink'}>
-        <IntroContainerStyles>
-          <ShortInfo />
-        </IntroContainerStyles>
-      </IntroStyles>
-    );
-  }
-}
-
-export default Intro;
+export default Header;

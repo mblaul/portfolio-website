@@ -20,6 +20,11 @@ export const reducer = (state, action) => {
         ...state,
         isMobile: action.isMobile,
       };
+    case 'setSelectedTags':
+      return {
+        ...state,
+        selectedTags: action.selectedTags,
+      };
     default:
       return state;
   }

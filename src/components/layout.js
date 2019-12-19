@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 
-import Intro from './layout/Intro';
-import Main from './layout/Main';
-import TopNav from './layout/TopNav';
-import Content from './layout/Content';
+import Header from './layout/Header';
+import About from './pages/About';
+import Posts from './pages/Posts';
 
 import { mediaQueryBreakpoints } from './config/constants';
 
@@ -16,26 +15,18 @@ const LayoutStyles = styled.div`
   overflow-x: hidden;
 
   @media (min-width: ${mediaQueryBreakpoints.med.px}) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
   }
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
-    display: block;
   }
 `;
 
-const Layout = ({ children }) => {
-  return (
-    <LayoutStyles>
-      <Intro />
-      <Main>
-        <TopNav />
-        <Content>{children}</Content>
-      </Main>
-    </LayoutStyles>
-  );
-};
+const Layout = () => (
+  <LayoutStyles>
+    <Header />
+    <About />
+    <Posts />
+  </LayoutStyles>
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
 const LinkStyles = styled.li`
-  border: 2px solid ${(props) => props.theme.color.main};
+  border: 2px solid ${props => props.theme.color.purple.main};
   border-radius: 35px;
 
   a {
@@ -19,7 +19,7 @@ const LinkStyles = styled.li`
     font: 900 1.3em Muli, sans-serif;
     color: white;
     text-decoration: none;
-    
+
     &:visited {
       color: white;
     }
@@ -31,8 +31,8 @@ const LinkStyles = styled.li`
       color: white;
       background-image: linear-gradient(
         -15deg,
-        ${(props) => props.theme.color.main},
-        ${(props) => props.theme.color.electricPink}
+        ${props => props.theme.color.purple.main},
+        ${props => props.theme.color.electricPink}
       );
       &:visited {
         color: white;
@@ -41,9 +41,9 @@ const LinkStyles = styled.li`
   }
 
   &.mobile {
-    background-color: ${(props) => props.theme.color.grey.dark};
+    background-color: ${props => props.theme.color.grey.dark};
     border: unset;
-    border-bottom: 2px solid ${(props) => props.theme.color.main};
+    border-bottom: 2px solid ${props => props.theme.color.purple.main};
   }
 `;
 

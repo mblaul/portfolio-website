@@ -1,19 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { mediaQueryBreakpoints } from './config/constants';
+import { getArrayOfRandomLength, getRandomInt } from './utils/genericHelpers';
+
+import { useStateValue } from './state'
+
 import SVG from './common/SVG';
 
-const SkillsStyles = styled.div`margin: auto;`;
+const SkillsStyles = styled.div`
+  text-align: center;
+  margin: 3em auto;
+`;
 
 const SkillzContainerStyles = styled.div`
   display: grid;
   width: fit-content;
-  grid-template-columns: repeat(${props => props.skillCount}, 1fr);
+  grid-row-gap: 1em;
   grid-column-gap: 1em;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (max-width: ${mediaQueryBreakpoints.med.px}) {
+    padding: 0;
+  }
+  @media (min-width: ${mediaQueryBreakpoints.med.px}) {
+    grid-template-columns: repeat(${props => props.skillCount}, 1fr);
+  }
+
+  
+  margin: 1em auto;
+  text-align: center;
 `;
 
 const Skill = styled.div`
   padding: 1em;
+  position: relative;
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 10px;
   color: black;
@@ -28,15 +50,17 @@ const Skill = styled.div`
     margin: auto;
   }
 
-  &:hover {
+  &:hover,
+  &.tag-selected {
     color: white;
     cursor: pointer;
     background-image: linear-gradient(
       -15deg,
-      ${props => props.theme.color.main},
+      ${props => props.theme.color.purple.main},
       ${props => props.theme.color.electricPink}
     );
-    box-shadow: 0px 0px 15px 3px ${props => props.theme.color.main};
+    box-shadow: 0px 0px 15px 3px ${props => props.theme.color.purple.main};
+
     svg {
       fill: white;
       &.react-icon {
@@ -47,11 +71,32 @@ const Skill = styled.div`
         animation-play-state: running;
       }
     }
+
+    .skill-effect {
+      position: absolute;
+      display: block;
+    }
   }
+
 
   .react-icon {
     animation: weeeeeee 4s linear infinite;
     animation-play-state: paused;
+  }
+
+  .skill-effect {
+    animation: bubbles 2s linear 1;
+    display: none;
+  }
+
+  @keyframes bubbles {
+    from {
+      opacity: 1;
+    }
+    to {
+      transform: translate(0, -100%);
+      opacity: 0;
+    }
   }
 
   @keyframes weeeeeee {
@@ -75,6 +120,7 @@ const Skill = styled.div`
 `;
 
 const SkillzGrid = () => {
+  
   const svgProps = {
     height: 100,
     width: 100,
@@ -84,54 +130,74 @@ const SkillzGrid = () => {
   const skillz = {
     frontend: [
       {
-        name: 'React',
+        name: `React`,
         iconProps: { name: `react-icon`, viewBox: `0 0 50 50`, ...svgProps },
       },
       {
-        name: 'JavaScript',
+        name: `JavaScript`,
         iconProps: { name: `js-icon`, viewBox: `0 0 50 50`, ...svgProps },
       },
       {
-        name: 'HTML',
+        name: `HTML`,
         iconProps: { name: `html-icon`, viewBox: `0 0 32 32`, ...svgProps },
       },
       {
-        name: 'CSS',
+        name: `CSS`,
         iconProps: { name: `css-icon`, viewBox: `0 0 50 50`, ...svgProps },
+        effect: (
+          <>
+            {getArrayOfRandomLength({ minLength: 5, maxLength: 10 }).map((index) => {
+              const bubbleSize = getRandomInt({  lowerBound: 5, upperBound: 30 });
+              const bubbleStyle = {
+                top: `${getRandomInt({ upperBound: 100 })}%`,
+                left: `${getRandomInt({ upperBound: 100 }) - 5}%`,
+                opacity: 0,
+              };
+              return (
+                <div className="skill-effect" style={bubbleStyle}>
+                  <SVG name="circle" height={bubbleSize} width={bubbleSize} />
+                </div>
+              );
+            })}
+          </>
+        ),
       },
     ],
     backend: [
       {
-        name: 'Rails',
+        name: `Rails`,
         iconProps: { name: `rails-icon`, viewBox: `0 0 122.498 157.564`, ...svgProps },
       },
       {
-        name: 'NodeJS',
+        name: `NodeJS`,
         iconProps: { name: `nodejs-icon`, viewBox: `0 0 32 32`, ...svgProps },
       },
       {
-        name: 'SQL',
+        name: `SQL`,
         iconProps: { name: `database-icon`, viewBox: `0 0 55 55`, ...svgProps },
+      },
+      {
+        name: `mongoDB`,
+        iconProps: { name: `mongodb-icon`, viewBox: `0 0 32 32`, ...svgProps },
       },
     ],
   };
 
+  const [ { selectedTags }, ] = useStateValue();
+
   return (
     <SkillsStyles>
-      <h1>Skills</h1>
-      <h2>Frontend</h2>
       <SkillzContainerStyles skillCount={skillz.frontend.length}>
         {skillz.frontend.map(skill => (
-          <Skill key={skill.name}>
+          <Skill key={skill.name} className={selectedTags.includes(skill.name.toLocaleLowerCase()) ? 'tag-selected' : ''}>
             <SVG classNames={skill.iconProps.name} {...skill.iconProps} />
             <div>{skill.name}</div>
+            {skill.effect}
           </Skill>
         ))}
-      </SkillzContainerStyles>
-      <h2>Backend</h2>
-      <SkillzContainerStyles skillCount={skillz.backend.length}>
+
         {skillz.backend.map(skill => (
-          <Skill key={skill.name}>
+          <Skill key={skill.name} className={selectedTags.includes(skill.name.toLocaleLowerCase()) ? 'tag-selected' : ''}>
             <SVG classNames={skill.iconProps.name} {...skill.iconProps} />
             <div>{skill.name}</div>
           </Skill>

@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PageStyles = styled.div`
-  margin: 0 15vw 0 0;
+  margin: 0 10% 0 0;
   color: white;
-  font-size: 1.3em;
+  font: 300 1.3em 'Muli';
 `;
 
 const Page = ({ children }) => {

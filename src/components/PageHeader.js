@@ -6,7 +6,7 @@ const PageHeaderStyles = styled.header`
   display: inline-block;
   margin-top: 4vh;
   font: 900 3.2em 'Muli', sans-serif;
-  font-style: italic;
+  letter-spacing: -1px;
 `;
 const PageHeader = ({ title }) => {
   return <PageHeaderStyles>{title}</PageHeaderStyles>;

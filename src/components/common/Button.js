@@ -4,12 +4,14 @@ import styled from 'styled-components';
 
 import { theme } from '../config/theme';
 
-const Button = (props) => {
-  const { borderColor, children, classNames, onClick, styles, text } = props;
+const Button = props => {
+  const { borderColor, children, classNames, height, padding, onClick, styles, text, width } = props;
 
   const ButtonStyles = styled.button`
     background-color: transparent;
-    padding: 1em;
+    width: ${width || `auto`};
+    height: ${height || `auto`};
+    padding: ${padding || `1em`};
     color: white;
     border: 3px solid ${borderColor};
     cursor: pointer;
@@ -30,15 +32,21 @@ Button.propTypes = {
   //String classNames for the button
   classNames: PropTypes.string,
 
+  //Height (in px) of the button
+  height: PropTypes.number,
+
   //Function to execute when button is clicked
   onClick: PropTypes.func,
 
   //String for the button's text
   text: PropTypes.string,
+
+  // Width (in px) of the button
+  width: PropTypes.number,
 };
 
 Button.defaultProps = {
-  borderColor: theme.color.main,
+  borderColor: theme.color.purple.main,
   onClick: () => {},
 };
 

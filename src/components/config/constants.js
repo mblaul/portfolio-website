@@ -21,6 +21,18 @@ export const mediaQueryBreakpoints = {
   },
 };
 
+export const spacing = {
+  horizontal: {
+    inner: 6,
+    outer: 12,
+  },
+  vertical: {
+    inner: 4,
+    outer: 8,
+  },
+};
+
 export const constants = {
   mediaQueryBreakpoints,
+  spacing,
 };
