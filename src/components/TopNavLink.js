@@ -32,7 +32,7 @@ const LinkStyles = styled.li`
       background-image: linear-gradient(
         -15deg,
         ${props => props.theme.color.purple.main},
-        ${props => props.theme.color.electricPink}
+        ${props => props.theme.color.pink.main}
       );
       &:visited {
         color: white;
@@ -60,7 +60,7 @@ const TopNavLink = ({ isActive, isMobile, link }) => {
 TopNavLink.propTypes = {
   isMobile: PropTypes.bool,
 
-  link: PropTypes.object,
+  link: PropTypes.object
 };
 
 export default TopNavLink;

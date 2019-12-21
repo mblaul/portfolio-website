@@ -9,7 +9,7 @@ const PostsStyles = styled.div`
   background: linear-gradient(
     45deg,
     ${props => props.theme.color.purple.main} 50%,
-    ${props => props.theme.color.electricPink}
+    ${props => props.theme.color.pink.main}
   );
 
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {

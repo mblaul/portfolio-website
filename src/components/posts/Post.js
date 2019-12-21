@@ -9,7 +9,7 @@ const PostStyles = styled.article`
 
   section {
     padding: 0em 0em 0.8em 0.6em;
-    border-left: 1px solid ${(props) => props.theme.color.electricPink};
+    border-left: 1px solid ${(props) => props.theme.color.pink.main};
     font-size: 1.3em;
   }
 `;
@@ -17,7 +17,7 @@ const PostStyles = styled.article`
 const PostHeader = styled.div`
   margin-bottom: 1.5em;
   padding: 0.5em 2vw 0.25em 0em;
-  box-shadow: 0px 3px 0px 0px ${(props) => props.theme.color.electricPink};
+  box-shadow: 0px 3px 0px 0px ${(props) => props.theme.color.pink.main};
   max-width: max-content;
   font: 900 3.2em 'Muli', sans-serif;
   font-style: italic;

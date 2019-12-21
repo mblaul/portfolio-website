@@ -38,10 +38,11 @@ const Styles = styled.div`
   }
 
   *::selection {
-    background: ${props => props.theme.color.electricPink}; /* WebKit/Blink Browsers */
+    background: ${props =>
+      props.theme.color.pink.main}; /* WebKit/Blink Browsers */
   }
   *::-moz-selection {
-    background: ${props => props.theme.color.electricPink}; /* Gecko Browsers */
+    background: ${props => props.theme.color.pink.main}; /* Gecko Browsers */
   }
 `;
 

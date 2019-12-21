@@ -45,7 +45,7 @@ export const ShortInfoStyles = styled.div`
     svg {
       padding: 0 0.5rem;
       &:hover {
-        fill: ${props => props.theme.color.electricPink};
+        fill: ${props => props.theme.color.pink.main};
       }
     }
     @media (max-width: ${mediaQueryBreakpoints.med.px}) {
