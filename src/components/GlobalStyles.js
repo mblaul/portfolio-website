@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { mediaQueryBreakpoints } from './config/constants';
-
 const Styles = styled.div`
   /* Font imports */
   @import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900,900i');
@@ -19,10 +17,23 @@ const Styles = styled.div`
   }
 
   h2 {
+    margin: 0;
+    padding: 2rem 0;
     font: 900 4.6rem 'Muli', sans-serif;
   }
 
+  h3 {
+    margin: 0;
+    padding: 1rem 0;
+    font: 800 3.8rem 'Muli', sans-serif;
+  }
+
+  h4 {
+    font: 800 3.2rem 'Muli', sans-serif;
+  }
+
   p {
+    margin: 0;
     font: 400 2.4rem 'Muli', sans-serif;
   }
 

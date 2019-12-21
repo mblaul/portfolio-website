@@ -10,7 +10,7 @@ import SVG from './common/SVG';
 
 const SkillsStyles = styled.div`
   text-align: center;
-  margin: 3em auto;
+  margin: 1rem auto;
 `;
 
 const SkillzContainerStyles = styled.div`
@@ -187,6 +187,7 @@ const SkillzGrid = () => {
 
   return (
     <SkillsStyles>
+      <h3>Skills</h3>
       <SkillzContainerStyles skillCount={skillz.frontend.length}>
         {skillz.frontend.map(skill => (
           <Skill key={skill.name} className={selectedTags.includes(skill.name.toLocaleLowerCase()) ? 'tag-selected' : ''}>

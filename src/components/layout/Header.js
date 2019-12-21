@@ -36,11 +36,11 @@ const Header = () => {
     <HeaderStyles>
       <ShortInfo />
       <div className="description">
-        <h2>Hello, World!</h2>
-        <p>I'm a full-stack web developer from Dearborn, Michigan.</p>
+        <h2>Hello!</h2>
+        <p>I'm a full-stack web developer from Dearborn, Michigan and I love building great web experiences.</p>
         <p>
-          I've always had a fun working on computers. That passion lead me to pursue a degree in Information Technology
-          from Oakland University in Rochester Hills, Michigan.
+          I've always enjoyed working on computers. That passion lead me to pursue a degree in Information Technology
+          while learning web development on the side.
         </p>
       </div>
     </HeaderStyles>

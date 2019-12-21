@@ -29,7 +29,6 @@ const Project = styled.div`
 
   .card-title,
   .card-body {
-    margin: 0.5em;
   }
 `;
 
@@ -66,12 +65,11 @@ const ProjectsGrid = () => {
 
   return (
     <ProjectGridContainerStyles>
-      <h1>Projects</h1>
-      <h2>Here are some of my more recent projects</h2>
+      <h3>Projects</h3>
       <ProjectGridStyles>
         {projects.map(project => (
           <Project onMouseEnter={() => selectTags(project.tags)} onMouseLeave={() => selectTags([])}>
-            <h3 className="card-title">{project.name}</h3>
+            <h4 className="card-title">{project.name}</h4>
             <div className="card-body">{project.description}</div>
           </Project>
         ))}
