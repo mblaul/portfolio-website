@@ -15,9 +15,10 @@ const PostsStyles = styled.div`
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
     grid-template-columns: 1 auto;
   }
-  
+
   @media (min-width: ${mediaQueryBreakpoints.med.px}) {
     grid-template-columns: repeat(2, 50%);
+  }
 
   h2 {
     text-align: center;

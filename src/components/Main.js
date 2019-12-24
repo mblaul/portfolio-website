@@ -7,7 +7,7 @@ import Posts from './pages/Posts';
 
 import { mediaQueryBreakpoints } from './config/constants';
 
-const LayoutStyles = styled.div`
+const MainStyles = styled.div`
   max-width: 100vw;
   max-height: 100vh;
   overflow-x: hidden;
@@ -18,12 +18,12 @@ const LayoutStyles = styled.div`
   }
 `;
 
-const Layout = () => (
-  <LayoutStyles>
+const Main = () => (
+  <MainStyles>
     <Header />
     <About />
     <Posts />
-  </LayoutStyles>
+  </MainStyles>
 );
 
-export default Layout;
+export default Main;
