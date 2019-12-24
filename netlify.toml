@@ -1,9 +1,3 @@
-
-[build]
-  command = "npm run build"
-  publish="portfolio-website/build"
-  base = "portfolio-website"
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
