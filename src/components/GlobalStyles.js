@@ -34,12 +34,12 @@ const Styles = styled.div`
 
   p {
     margin: 0;
+    padding: 1rem;
     font: 400 2.4rem 'Muli', sans-serif;
   }
 
   *::selection {
-    background: ${props =>
-      props.theme.color.pink.main}; /* WebKit/Blink Browsers */
+    background: ${props => props.theme.color.pink.main}; /* WebKit/Blink Browsers */
   }
   *::-moz-selection {
     background: ${props => props.theme.color.pink.main}; /* Gecko Browsers */

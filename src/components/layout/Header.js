@@ -17,17 +17,16 @@ const HeaderStyles = styled.header`
   @media (max-width: ${mediaQueryBreakpoints.med.px}) {
     grid-template-columns: 1 auto;
     padding: ${spacing.vertical.inner}vh ${spacing.horizontal.inner}vw;
-    & > div { 
-      margin:${spacing.vertical.inner}vh 0;
+    & > div {
+      margin: ${spacing.vertical.inner}vh 0;
     }
   }
   @media (min-width: ${mediaQueryBreakpoints.med.px}) {
     grid-template-columns: repeat(2, 50%);
     padding: 4vh 13vw;
-    .description { 
+    .description {
       margin: 5vh 0;
     }
-  }
   }
 `;
 
@@ -39,8 +38,9 @@ const Header = () => {
         <h2>Hello!</h2>
         <p>I'm a full-stack web developer from Dearborn, Michigan and I love building great web experiences.</p>
         <p>
-          I've always enjoyed working on computers. That passion lead me to pursue a degree in Information Technology
-          while learning web development on the side.
+          As a kid I always enjoyed toying around with computers. That interest lead me to achieving a degree in
+          Information Technology. While in college I developed a love for web development and pursued that as my career
+          after graduation.
         </p>
       </div>
     </HeaderStyles>

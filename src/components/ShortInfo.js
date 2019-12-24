@@ -61,13 +61,13 @@ class ShortInfo extends Component {
             <div className={`short-description`}>Web Developer, Animal Lover, Michigander</div>
 
             <div className={`social-media-links`}>
-              <a href="https://www.github.com/mblaul" target="_blank">
+              <a href="https://www.github.com/mblaul" target="_blank" rel="noopener noreferrer">
                 <SVG name="github-icon" width={36} height={36} viewBox={`0 0 512 512`} />
               </a>
-              <a href="https://www.linkedin.com/in/mblaul" target="_blank">
+              <a href="https://www.linkedin.com/in/mblaul" target="_blank" rel="noopener noreferrer">
                 <SVG name="linkedin-icon" width={36} height={36} viewBox={`0 0 512 512`} />
               </a>
-              <a href="https://dev.to/mblaul" target="_blank">
+              <a href="https://dev.to/mblaul" target="_blank" rel="noopener noreferrer">
                 <SVG name="dev-to-icon" width={52} height={52} viewBox={`0 0 32 32`} />
               </a>
             </div>
