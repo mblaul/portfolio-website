@@ -3,12 +3,7 @@ import React from "react";
 import "../public/normalize.css";
 import "../public/styles.css";
 import { ThemeProvider } from "styled-components";
-
-const theme = {
-  colors: {
-    primary: "#0070f3",
-  },
-};
+import theme from '../config/theme';
 
 export default class MyApp extends App {
   render() {

@@ -1,8 +1,19 @@
-import React from "react";
 import styled from "styled-components";
+import PageContainer from "../components/PageContainer";
 
-const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.primary};
+const Title = styled.h2`
+  max-width: max-content;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--space-md);
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.offWhite};
 `;
 
-export default () => <Title>My page</Title>;
+const Home = () => (
+  <PageContainer>
+    <Title>Hello</Title>
+    <p>My name is Matt and I love to build great web experiences.</p>
+  </PageContainer>
+);
+
+export default Home;
