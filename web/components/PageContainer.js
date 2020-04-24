@@ -1,13 +1,21 @@
 import styled from "styled-components";
+import Intro from "./Intro";
 
 const PageContainerStyles = styled.div`
-  padding: var(--space-md);
+  padding: var(--spacing-lg);
+  position: relative;
+  z-index: 1;
 `;
 
 const PageContainer = (props) => {
   const { children } = props;
 
-  return <PageContainerStyles>{children}</PageContainerStyles>;
+  return (
+    <>
+      <Intro />
+      <PageContainerStyles>{children}</PageContainerStyles>
+    </>
+  );
 };
 
 export default PageContainer;

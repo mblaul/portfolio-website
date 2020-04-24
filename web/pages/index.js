@@ -3,8 +3,8 @@ import PageContainer from "../components/PageContainer";
 
 const Title = styled.h2`
   max-width: max-content;
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--space-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--spacing-md);
   background-color: ${({ theme }) => theme.colors.blue};
   color: ${({ theme }) => theme.colors.offWhite};
 `;

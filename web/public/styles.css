@@ -4,20 +4,24 @@
   --baseline: 10px;
 
   /* spacing values */
-  --space-sm: calc(var(--baseline) / 2);
-  --space-md: var(--baseline);
-  --space-lg: calc(var(--baseline) * 2);
-  --space-xl: calc(var(--baseline) * 3);
+  --spacing-sm: calc(var(--baseline) / 2);
+  --spacing-md: var(--baseline);
+  --spacing-lg: calc(var(--baseline) * 2);
+  --spacing-xl: calc(var(--baseline) * 3);
+
+  /* colors */
+  --colors-off-black: #2f2f2f;
 }
 
 html,
 body {
   font-size: var(--baseline);
   background-color: #ffffff;
+  color: var(--colors-off-black);
 }
 
 h1 {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--spacing-lg);
   font-family: Baloo;
   font-size: 6.103515625em;
   line-height: 9rem;
@@ -27,7 +31,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--spacing-lg);
   font-family: Baloo;
   font-size: 4.8828125em;
   line-height: 6rem;
@@ -37,7 +41,7 @@ h2 {
 }
 
 h3 {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--spacing-lg);
   font-family: Baloo;
   font-size: 3.90625em;
   line-height: 6rem;
@@ -47,7 +51,7 @@ h3 {
 }
 
 h4 {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--spacing-lg);
   font-family: Baloo;
   font-size: 3.125em;
   line-height: 6rem;
@@ -57,17 +61,17 @@ h4 {
 }
 
 h5 {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--spacing-lg);
   font-family: Baloo;
   font-size: 2.5em;
-  line-height: var(--space-lg);
+  line-height: var(--spacing-lg);
   font-weight: 400;
   font-style: normal;
   letter-spacing: 0em;
 }
 
 h6 {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--spacing-lg);
   font-family: Baloo;
   font-size: 2em;
   line-height: 3rem;
@@ -77,7 +81,7 @@ h6 {
 }
 
 p {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--spacing-lg);
   font-family: Hind;
   font-size: 1.6em;
   line-height: 3rem;
@@ -88,7 +92,7 @@ p {
 
 @media screen and (max-width: 720px) {
   h1 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-lg);
     font-family: Baloo;
     font-size: 6.103515625em;
     line-height: 9rem;
@@ -97,7 +101,7 @@ p {
     letter-spacing: 0em;
   }
   h2 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-lg);
     font-family: Baloo;
     font-size: 4.8828125em;
     line-height: 6rem;
@@ -106,7 +110,7 @@ p {
     letter-spacing: 0em;
   }
   h3 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-lg);
     font-family: Baloo;
     font-size: 3.90625em;
     line-height: 6rem;
@@ -115,7 +119,7 @@ p {
     letter-spacing: 0em;
   }
   h4 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-lg);
     font-family: Baloo;
     font-size: 3.125em;
     line-height: 6rem;
@@ -124,28 +128,28 @@ p {
     letter-spacing: 0em;
   }
   h5 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-lg);
     font-family: Baloo;
     font-size: 2.5em;
-    line-height: var(--space-lg);
+    line-height: var(--spacing-lg);
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0em;
   }
   h6 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-lg);
     font-family: Baloo;
     font-size: 2em;
-    line-height: var(--space-lg);
+    line-height: var(--spacing-lg);
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0em;
   }
   p {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--spacing-lg);
     font-family: Hind;
     font-size: 1.6em;
-    line-height: var(--space-lg);
+    line-height: var(--spacing-lg);
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0em;
