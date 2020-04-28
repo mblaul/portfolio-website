@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Baloo:400|Hind:400");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Yeseva+One&display=swap");
 
 :root {
   --baseline: 10px;
@@ -10,39 +10,58 @@
   --spacing-xl: calc(var(--baseline) * 3);
 
   /* colors */
+  --colors-purple: #8f25df;
+  --colors-light-purple: #91838e;
+  --colors-blue: #217d8b;
+  --colors-light-blue: #3a9da6;
+  --colors-green: #0f5257;
+  --colors-black: #050505;
+  --colors-off-white: #e7eaf0;
   --colors-off-black: #2f2f2f;
+
+  /* effects */
+  --std-box-shadow: 0 0.25rem 1rem var(--colors-off-black);
 }
 
 html,
 body {
   font-size: var(--baseline);
   background-color: #ffffff;
-  color: var(--colors-off-black);
+  color: var(--colors-off-white);
+  letter-spacing: -1px;
+  box-sizing: border-box;
+}
+
+.super-large {
+  margin-bottom: var(--spacing-lg);
+  font-family: "Yeseva One";
+  font-size: calc(6.103515625em * 2);
+  line-height: 9rem;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1 {
   margin-bottom: var(--spacing-lg);
-  font-family: Baloo;
+  font-family: "Yeseva One";
   font-size: 6.103515625em;
   line-height: 9rem;
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 0em;
 }
 
 h2 {
   margin-bottom: var(--spacing-lg);
-  font-family: Baloo;
+  font-family: "Yeseva One", cursive;
   font-size: 4.8828125em;
   line-height: 6rem;
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 0em;
 }
 
 h3 {
   margin-bottom: var(--spacing-lg);
-  font-family: Baloo;
+  font-family: "Yeseva One", cursive;
   font-size: 3.90625em;
   line-height: 6rem;
   font-weight: 400;
@@ -52,7 +71,7 @@ h3 {
 
 h4 {
   margin-bottom: var(--spacing-lg);
-  font-family: Baloo;
+  font-family: "Yeseva One", cursive;
   font-size: 3.125em;
   line-height: 6rem;
   font-weight: 400;
@@ -62,8 +81,8 @@ h4 {
 
 h5 {
   margin-bottom: var(--spacing-lg);
-  font-family: Baloo;
-  font-size: 2.5em;
+  font-family: "Yeseva One", cursive;
+  font-size: 1.75em;
   line-height: var(--spacing-lg);
   font-weight: 400;
   font-style: normal;
@@ -72,7 +91,7 @@ h5 {
 
 h6 {
   margin-bottom: var(--spacing-lg);
-  font-family: Baloo;
+  font-family: "Yeseva One", cursive;
   font-size: 2em;
   line-height: 3rem;
   font-weight: 400;
@@ -82,7 +101,7 @@ h6 {
 
 p {
   margin-bottom: var(--spacing-lg);
-  font-family: Hind;
+  font-family: Roboto;
   font-size: 1.6em;
   line-height: 3rem;
   font-weight: 400;
@@ -93,7 +112,7 @@ p {
 @media screen and (max-width: 720px) {
   h1 {
     margin-bottom: var(--spacing-lg);
-    font-family: Baloo;
+    font-family: "Yeseva One", cursive;
     font-size: 6.103515625em;
     line-height: 9rem;
     font-weight: 400;
@@ -102,7 +121,7 @@ p {
   }
   h2 {
     margin-bottom: var(--spacing-lg);
-    font-family: Baloo;
+    font-family: "Yeseva One", cursive;
     font-size: 4.8828125em;
     line-height: 6rem;
     font-weight: 400;
@@ -111,7 +130,7 @@ p {
   }
   h3 {
     margin-bottom: var(--spacing-lg);
-    font-family: Baloo;
+    font-family: "Yeseva One", cursive;
     font-size: 3.90625em;
     line-height: 6rem;
     font-weight: 400;
@@ -120,7 +139,7 @@ p {
   }
   h4 {
     margin-bottom: var(--spacing-lg);
-    font-family: Baloo;
+    font-family: "Yeseva One", cursive;
     font-size: 3.125em;
     line-height: 6rem;
     font-weight: 400;
@@ -129,7 +148,7 @@ p {
   }
   h5 {
     margin-bottom: var(--spacing-lg);
-    font-family: Baloo;
+    font-family: "Yeseva One", cursive;
     font-size: 2.5em;
     line-height: var(--spacing-lg);
     font-weight: 400;
@@ -138,7 +157,7 @@ p {
   }
   h6 {
     margin-bottom: var(--spacing-lg);
-    font-family: Baloo;
+    font-family: "Yeseva One", cursive;
     font-size: 2em;
     line-height: var(--spacing-lg);
     font-weight: 400;
@@ -147,7 +166,7 @@ p {
   }
   p {
     margin-bottom: var(--spacing-lg);
-    font-family: Hind;
+    font-family: Roboto;
     font-size: 1.6em;
     line-height: var(--spacing-lg);
     font-weight: 400;
