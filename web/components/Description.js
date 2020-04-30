@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 const RolesStyles = styled.div`
   color: black;
+  display: inline-flex;
   margin: 0 var(--spacing-md);
   padding: 0 var(--spacing-md);
   font-family: "Yeseva One";
-  font-size: 1.2em;
-  line-height: 9rem;
+  font-size: 2rem;
   font-weight: 600;
   font-style: normal;
   background: var(--colors-off-white);
@@ -15,11 +15,15 @@ const RolesStyles = styled.div`
   text-shadow: none;
   text-decoration: underline;
   text-decoration-color: var(--colors-light-blue);
-  transition: width 0.1s ease;
+  width: 10em;
 
   .slider {
+    width: 100%;
+    align-self: center;
+    text-align: center;
     opacity: 0;
-    transition: opacity 0.2s linear;
+    transition: all 0.3s linear;
+
     &.fade-in {
       opacity: 1;
     }
@@ -30,9 +34,7 @@ const Roles = () => {
   const roles = [
     "a full-stack developer",
     "an aspiring designer",
-    "a drummer",
     "a lifelong student",
-    "a gamer",
   ];
 
   const [currentRole, setCurrentRole] = useState(0);
@@ -51,30 +53,50 @@ const Roles = () => {
         }, 600);
         break;
     }
-  }, 1500);
+  }, 1750);
 
   return (
     <RolesStyles>
-      <div className={`slider ${currentClassName}`}>{roles[currentRole]}</div>
+      <span className={`slider ${currentClassName}`}>{roles[currentRole]}</span>
     </RolesStyles>
   );
 };
 
 const DescriptionStyles = styled.div`
   margin-top: var(--spacing-xl);
+  display: block;
+
   .description {
     display: inline-flex;
-    align-items: baseline;
-    font-size: 2.4em;
+    font-size: 1.2rem;
+
+    @media only screen and (max-width: 992px) {
+      grid-template-columns: 1fr;
+
+      p,
+      div {
+        justify-self: center;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+    margin-top: var(--spacing-md);
   }
 `;
 
 const Description = () => {
   return (
     <DescriptionStyles>
-      <p className="description">
-        I'm <Roles />
-      </p>
+      <div className="description">
+        <p>I am </p>
+        <Roles />
+        <p>who's passionate about building great web experiences.</p>
+      </div>
+      <br />
+      <div className="description">
+        <p>I specialize in:</p>
+      </div>
     </DescriptionStyles>
   );
 };

@@ -17,28 +17,57 @@ const IntroStyles = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
 
+  @media only screen and (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+
   .left-pane {
     margin: calc(var(--spacing-xl) * 2);
+
     .header {
       display: flex;
+      flex-wrap: wrap;
+
       .headshot {
         border: 0.75rem solid var(--colors-off-white);
         border-radius: 50%;
         max-width: 12.5vw;
         max-height: 12.5vw;
+
+        @media only screen and (max-width: 992px) {
+          margin: 0 auto;
+          max-width: 50vw;
+          max-height: 50vw;
+        }
       }
+
       .header-text {
         margin-top: var(--spacing-xl);
         margin-left: var(--spacing-xl);
+
         .super-large {
           font-size: 3.2vw;
           letter-spacing: -4px;
           line-height: 3.25vw;
+
+          @media only screen and (max-width: 992px) {
+            font-size: 10vw;
+            line-height: 10.5vw;
+          }
         }
+
         .name {
           font-size: 4.5vw;
+
+          @media only screen and (max-width: 992px) {
+            font-size: 15vw;
+          }
         }
       }
+    }
+
+    @media only screen and (max-width: 992px) {
+      margin: calc(var(--spacing-xl));
     }
   }
 
@@ -46,6 +75,10 @@ const IntroStyles = styled.div`
     background-image: url("/bg.jpg");
     background-size: cover;
     height: 100%;
+
+    @media only screen and (max-width: 992px) {
+      display: none;
+    }
   }
 `;
 

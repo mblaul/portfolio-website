@@ -13,6 +13,16 @@ const PageContainerStyles = styled.div`
     --container-padding: calc(var(--spacing-xl) * 2.5);
     padding: var(--container-padding);
     height: calc(100vh - calc(var(--container-padding) * 2));
+
+    @media only screen and (max-width: 992px) {
+      padding: var(--spacing-sm);
+      height: calc(100vh - calc(var(--spacing-sm)) * 2);
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+    height: 100%;
+    max-height: 100%;
   }
 `;
 
