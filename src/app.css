@@ -1,29 +1,57 @@
 :root {
 	--dark-sky: rgb(9 13 26);
 	--dark-sky-2: rgb(22 33 62);
-	color: white;
 	--spacing-sm: 2rem;
+	--view-height: 100vh;
+	--view-width: 100vw;
+
+	box-sizing: border-box !important;
+
+	color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 24px;
+	text-shadow: 1px 1px 1rem rgb(19, 19, 19);
+	line-height: 1.5em;
 }
 
 body {
-	background: linear-gradient(var(--dark-sky), var(--dark-sky-2));
+	background: var(--dark-sky);
 	width: 100vw;
-	height: 100vh;
+	overflow-x: hidden;
 }
 
 #svelte {
 	width: 100vw;
-	height: 100vh;
 	display: inline-block;
 }
 
 #app {
-	margin: var(--spacing-sm);
-	height: calc(100vh - calc(var(--spacing-sm) * 2));
-}
-
-#background {
 	position: absolute;
+	display: grid;
+	grid-template-rows: 95% 5%;
+	z-index: 100;
 	top: 0;
 	left: 0;
+	padding: var(--spacing-sm);
+	width: calc(100vw - calc(var(--spacing-sm) * 2));
+	height: 300vh;
+	background: linear-gradient(transparent, var(--dark-sky-2));
+}
+
+h1 {
+	font: 13.5vw Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	letter-spacing: -1px;
+}
+
+h2 {
+	font: 11vw Arial, Helvetica, sans-serif;
+	font-weight: 600;
+	letter-spacing: -1px;
+}
+
+h3 {
+	font: 10vw Arial, Helvetica, sans-serif;
+	font-weight: 600;
+	letter-spacing: -1px;
 }
