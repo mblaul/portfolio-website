@@ -1,57 +1,50 @@
+/* Design tokens, named after the Figma variables in Sites → Portfolio */
 :root {
-	--dark-sky: rgb(9 13 26);
-	--dark-sky-2: rgb(22 33 62);
-	--spacing-sm: 2rem;
-	--view-height: 100vh;
-	--view-width: 100vw;
+	--primary-dark: #d16d15;
+	--secondary-dark: #b22f00;
 
-	box-sizing: border-box !important;
+	--spacing-extra-small: 4px;
+	--spacing-small: 8px;
+	--spacing-medium: 16px;
+	--spacing-large: 32px;
+	--spacing-extra-large: 64px;
 
-	color: white;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 24px;
-	text-shadow: 1px 1px 1rem rgb(19, 19, 19);
-	line-height: 1.5em;
+	--surface: #ffffff;
+	--surface-muted: #f9f9f9;
+	--ink: #000000;
+	--ink-on-dark: #ffffff;
+	--ink-on-dark-muted: #e5e5e5;
+
+	--font-serif: 'Source Serif 4 Variable', Georgia, serif;
+	--font-sans: 'Manrope Variable', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
-	background: var(--dark-sky);
-	width: 100vw;
-	overflow-x: hidden;
+	margin: 0;
+	background: var(--surface);
+	color: var(--ink);
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
 }
 
-#svelte {
-	width: 100vw;
-	display: inline-block;
+h1,
+h2,
+h3,
+p {
+	margin: 0;
 }
 
-#app {
-	position: absolute;
-	display: grid;
-	grid-template-rows: 95% 5%;
-	z-index: 100;
-	top: 0;
-	left: 0;
-	padding: var(--spacing-sm);
-	width: calc(100vw - calc(var(--spacing-sm) * 2));
-	height: 300vh;
-	background: linear-gradient(transparent, var(--dark-sky-2));
-}
-
-h1 {
-	font: 13.5vw Arial, Helvetica, sans-serif;
-	font-weight: 700;
-	letter-spacing: -1px;
-}
-
-h2 {
-	font: 11vw Arial, Helvetica, sans-serif;
-	font-weight: 600;
-	letter-spacing: -1px;
-}
-
-h3 {
-	font: 10vw Arial, Helvetica, sans-serif;
-	font-weight: 600;
-	letter-spacing: -1px;
+img {
+	display: block;
+	max-width: 100%;
 }
