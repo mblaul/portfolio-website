@@ -5,9 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="text-scale" content="scale" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<!-- lets CSS hide content the intro animation is about to reveal, only when JS is running -->
+		<!-- Runs before the page paints: marks that JavaScript is on (so CSS can hide what the intro
+		     animation is about to reveal), and applies a saved light/dark choice so a dark-mode
+		     visitor never sees a white flash. With no saved choice the system setting applies. -->
 		<script>
 			document.documentElement.classList.add('js');
+			try {
+				const theme = localStorage.getItem('theme');
+				if (theme === 'theme-light' || theme === 'theme-dark') {
+					document.documentElement.dataset.theme = theme;
+				}
+			} catch {}
 		</script>
 		%sveltekit.head%
 	</head>

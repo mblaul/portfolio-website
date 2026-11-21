@@ -17,8 +17,8 @@
 		gap: 10px;
 		padding: var(--spacing-large);
 		overflow: clip;
-		background: var(--surface);
-		box-shadow: 0 2px 4px rgb(0 0 0 / 0.25);
+		background: var(--card);
+		box-shadow: 0 2px 4px var(--card-shadow);
 	}
 
 	.title,

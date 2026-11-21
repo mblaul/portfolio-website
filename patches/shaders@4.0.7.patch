@@ -1,0 +1,38 @@
+diff --git a/dist/svelte/source/engine/Shader.svelte b/dist/svelte/source/engine/Shader.svelte
+index e63ec98138622e74ab2e1111929ce43dd3335cf0..2e9717408c6a5a6700134e053d8b46ffb19d426e 100644
+--- a/dist/svelte/source/engine/Shader.svelte
++++ b/dist/svelte/source/engine/Shader.svelte
+@@ -19,11 +19,14 @@
+      * fallback (a gradient, an image) from this callback if you want one.
+      */
+     onunavailable?: (reason: GpuFailureReason) => void;
++    /** Highest frames per second to render; 0 or unset = every display frame. (Local patch: the
++     * renderer supports this and the Vue wrapper exposes it; the Svelte wrapper did not.) */
++    frameRateCap?: number;
+     children?: import('svelte').Snippet;
+     [key: string]: any;
+   }
+ 
+-  const { disableTelemetry = false, colorSpace = 'p3-linear', toneMapping = 'linear', isPreview = false, onready, onunavailable, children, ...rest }: Props = $props();
++  const { disableTelemetry = false, colorSpace = 'p3-linear', toneMapping = 'linear', isPreview = false, onready, onunavailable, frameRateCap = 0, children, ...rest }: Props = $props();
+ 
+   // DOM references to the container and canvas
+   let containerRef: HTMLDivElement;
+@@ -211,10 +214,17 @@
+     visibilityObserver.observe(containerRef);
+   };
+ 
++  // Keep the renderer's frame-rate cap in sync with the prop (local patch).
++  $effect(() => {
++    const cap = frameRateCap;
++    rendererInstance?.setFrameRateCap?.(cap);
++  });
++
+   // Initialize renderer on mount - with visibility awareness
+   onMount(async () => {
+     // Create the renderer instance (deferred from module scope for SSR compatibility)
+     rendererInstance = shaderRendererGPU();
++    rendererInstance.setFrameRateCap?.(frameRateCap);
+     rendererInstance.setOnReady(() => onready?.());
+     rendererInstance.setOnUnavailable((reason: GpuFailureReason) => {
+       gpuUnavailable = reason;

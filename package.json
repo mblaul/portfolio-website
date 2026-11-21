@@ -29,5 +29,8 @@
 		"@fontsource-variable/source-serif-4": "^5.2.0",
 		"gsap": "^3.13.0",
 		"shaders": "^4.0.5"
+	},
+	"patchedDependencies": {
+		"shaders@4.0.7": "patches/shaders@4.0.7.patch"
 	}
 }

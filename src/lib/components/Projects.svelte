@@ -2,11 +2,13 @@
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import { getProjects } from '#lib/projects.remote.ts';
+	import { GSAP_ENABLED } from '#lib/motion.ts';
 	import ProjectCard from './ProjectCard.svelte';
 
 	// Cards rise in one after another as they scroll into view. Attachments only run in the
 	// browser, so the plugin is registered here rather than at module level.
 	function staggerIn(node: HTMLElement) {
+		if (!GSAP_ENABLED) return;
 		gsap.registerPlugin(ScrollTrigger);
 		const mm = gsap.matchMedia();
 		mm.add('(prefers-reduced-motion: no-preference)', () => {

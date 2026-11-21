@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Shader, Group, Circle, Ripples, Perspective, DisplacementMap, Checkerboard, Pixelate } from 'shaders/svelte';
+	import { Shader, Group, Ripples, Perspective, DisplacementMap, Checkerboard, Pixelate } from 'shaders/svelte';
 
 	type Band = { color: string; length: number };
 
@@ -26,7 +26,7 @@
 		// how tightly the colour cycles pack; higher = more, narrower bands on screen
 		rings = 5,
 		// how fast the bands travel outward, 0 = frozen
-		speed = 1,
+		speed = 0.75,
 		// how far each wave drags the squares, 0 = no warp; past about 0.05 squares start to tear
 		push = 0.03,
 		// how far neighbouring bands bleed into each other: 0 = hard stripes, 1 = one continuous gradient
@@ -39,20 +39,20 @@
 		pan = 12,
 		// zoom after tilting, to push the tipped board's empty corners out of frame
 		zoom = 1.6,
-		// how far from the ripple centre the board stays visible before it has faded to nothing;
-		// 1 = the box height; about 2.8 reaches every edge. 0 = no fade, the board fills the whole box
-		fade = 2.4,
-		// 0..1: how gradual the fade is (0 = a hard circular edge)
-		fadeSoftness = 0.5,
 		// size of one pixel-art pixel in CSS px; 0 = smooth
-		pixelSize = 8
+		pixelSize = 5,
+		// performance: how many screen pixels each rendered pixel covers. 2 = render at half
+		// resolution (a quarter of the GPU work) and enlarge with hard edges; 1 = full resolution.
+		// Only used when a pixel-art pixel divides evenly into it, so every block stays one size.
+		renderScale = 2,
+		// performance: highest frames per second the ripple renders at. It moves slowly, so 30
+		// looks the same as 60 for half the GPU work. 0 = every display frame
+		frameRate = 30
 	}: {
 		blend?: number;
-		fade?: number;
 		tilt?: number;
 		pan?: number;
 		zoom?: number;
-		fadeSoftness?: number;
 		class?: string;
 		style?: string;
 		palette?: Band[];
@@ -63,6 +63,8 @@
 		speed?: number;
 		push?: number;
 		pixelSize?: number;
+		renderScale?: number;
+		frameRate?: number;
 	} = $props();
 
 	// How the library draws a ring: it takes a sine wave running outward from the centre and
@@ -155,23 +157,51 @@
 	// Checkerboard counts squares along the box height, so convert the pixel size into a count.
 	const cells = $derived.by(() => (height && cellSize > 0 ? height / cellSize : 9));
 
-	// Pixelate takes "cells along the longest edge". A fractional cell size makes some pixels a
-	// device pixel wider than their neighbours, so pick the count that makes each one a whole
-	// number of device pixels.
 	let width = $state(0);
 	let height = $state(0);
+
+	// Art pixels are rounded to a whole number of device pixels, so every block is the same size.
+	const dpr = typeof window === 'undefined' ? 1 : window.devicePixelRatio || 1;
+	const blockDevicePx = $derived(pixelSize > 0 ? Math.max(1, Math.round(pixelSize * dpr)) : 0);
+
+	// Render scale actually used: it has to divide the block exactly (6 device px per block at 5px
+	// on a 1.25× screen → 2 works, 3 rendered pixels per block), otherwise blocks come out uneven.
+	const factor = $derived(
+		renderScale > 1 && blockDevicePx > 0 && blockDevicePx % renderScale === 0 ? renderScale : 1
+	);
+
+	// The shader draws into a stage `factor` times smaller and CSS enlarges it back with hard
+	// edges. The stage size is nudged so its canvas buffer is a whole number of pixels, which keeps
+	// the browser from resampling it unevenly.
+	const wholeBuffer = (cssPx: number) => {
+		let n = Math.ceil(cssPx);
+		for (let i = 0; i < 8; i++, n++) {
+			if (Math.abs(n * dpr - Math.round(n * dpr)) < 1e-6) return n;
+		}
+		return Math.ceil(cssPx);
+	};
+	const stageWidth = $derived(width ? wholeBuffer(width / factor) : 0);
+	const stageHeight = $derived(height ? wholeBuffer(height / factor) : 0);
+
+	// Pixelate takes "cells along the longest edge": the stage's longest edge in rendered pixels,
+	// divided by rendered pixels per block.
 	const scale = $derived.by(() => {
-		const longest = Math.max(width, height);
-		if (!longest || pixelSize <= 0) return 0;
-		const dpr = typeof window === 'undefined' ? 1 : window.devicePixelRatio;
-		const devicePx = Math.max(1, Math.round(pixelSize * dpr));
-		return (longest * dpr) / devicePx;
+		if (!blockDevicePx) return 0;
+		const longest = Math.max(stageWidth, stageHeight) * dpr;
+		return longest / (blockDevicePx / factor);
 	});
 </script>
 
-<div class={className} {style} bind:clientWidth={width} bind:clientHeight={height}>
+<div class="ripple-root {className}" {style} bind:clientWidth={width} bind:clientHeight={height}>
+	<!-- the stage the shader renders into, enlarged back to full size by CSS -->
+	<div
+		class="stage"
+		style:width="{stageWidth}px"
+		style:height="{stageHeight}px"
+		style:transform={factor > 1 ? `scale(${factor})` : undefined}
+	>
 	<!-- No opaque base layer on purpose: whatever is behind the canvas shows through the empty squares. -->
-	<Shader style="display:block;width:100%;height:100%" colorSpace="srgb">
+	<Shader style="display:block;width:100%;height:100%" colorSpace="srgb" frameRateCap={frameRate}>
 		<!-- Hidden rings: the height of the water, one smooth rise and fall per colour, tipped into
 		     the same perspective as the board. Displacement reads brightness in linear light, where
 		     #bcbcbc means "don't move", so white crests lift and grey troughs rest. -->
@@ -188,15 +218,9 @@
 			/>
 		</Perspective>
 
-		<!-- Hidden soft disc centred on the ripple origin, used once at the end to fade the finished
-		     picture out with distance so it melts into whatever the page background is. -->
-		{#if fade > 0}
-			<Circle id="fade" visible={false} color="#ffffff" {center} radius={fade} softness={fadeSoftness} />
-		{/if}
-
-		<!-- Everything visible sits in one group so the fade is applied a single time to the
-		     finished result; fading each layer separately compounds and washes the colours out. -->
-		<Group maskSource={fade > 0 ? 'fade' : undefined} maskType="alpha">
+		<!-- Everything visible, grouped. The fade into the page is done outside the shader, with a CSS
+		     gradient laid over it (see the page). -->
+		<Group>
 			<!-- Seen from a low angle, a point on the water rising simply moves up the screen. So the
 			     flat coloured board is tipped into perspective first, and then the wave heights shift
 			     it straight up and down (angle 90). Squares and colours move together. -->
@@ -237,4 +261,23 @@
 			<Pixelate {scale} />
 		{/if}
 	</Shader>
+	</div>
 </div>
+
+<style>
+	.ripple-root {
+		overflow: hidden;
+	}
+
+	.stage {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform-origin: 0 0;
+	}
+
+	/* enlarge the half-size render with hard pixel edges instead of blurring it */
+	.stage :global(canvas) {
+		image-rendering: pixelated;
+	}
+</style>

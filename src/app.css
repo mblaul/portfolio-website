@@ -9,14 +9,55 @@
 	--spacing-large: 32px;
 	--spacing-extra-large: 64px;
 
-	--surface: #ffffff;
-	--surface-muted: #f9f9f9;
-	--ink: #000000;
 	--ink-on-dark: #ffffff;
 	--ink-on-dark-muted: #e5e5e5;
 
 	--font-serif: 'Source Serif 4 Variable', Georgia, serif;
 	--font-sans: 'Manrope Variable', system-ui, sans-serif;
+}
+
+/*
+ * Theme, in the same shape as jijiui: the system preference picks the default, and
+ * data-theme="theme-light" / "theme-dark" on <html> overrides it. The inline script in app.html
+ * sets data-theme from a saved choice before the first paint; ThemeToggle.svelte flips it.
+ *
+ * The dark block appears twice (system default and explicit choice) because CSS can't share a
+ * block between a media query and an attribute selector.
+ */
+:root,
+[data-theme='theme-light'] {
+	color-scheme: light;
+	--surface: #ffffff;
+	--surface-muted: #f9f9f9;
+	--card: #ffffff;
+	--card-shadow: rgb(0 0 0 / 0.25);
+	--ink: #000000;
+	--intro-surface: #000000;
+	--intro-edge: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='theme-light']) {
+		color-scheme: dark;
+		--surface: #121011;
+		--surface-muted: #1b1918;
+		--card: #242120;
+		--card-shadow: rgb(0 0 0 / 0.6);
+		--ink: #f4f1ec;
+		--intro-surface: #000000;
+		--intro-edge: rgb(255 255 255 / 0.12);
+	}
+}
+
+[data-theme='theme-dark'] {
+	color-scheme: dark;
+	--surface: #121011;
+	--surface-muted: #1b1918;
+	--card: #242120;
+	--card-shadow: rgb(0 0 0 / 0.6);
+	--ink: #f4f1ec;
+	--intro-surface: #000000;
+	--intro-edge: rgb(255 255 255 / 0.12);
 }
 
 *,
